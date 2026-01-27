@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CrypTax Offline — Calcul fiscal crypto 100 % local</title>
+  <meta name="description" content="Calcul et préparation hors ligne de votre déclaration crypto (CGI art. 150 VH bis). Formulaires 2086 et 3916-bis pré-remplis. Pas de serveur, pas de compte, pas de tracking. Paiement unique 19,99 €.">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/cryptax-icon-transparent.svg">
+  <link rel="icon" type="image/png" href="assets/logos/cryptax-icon-transparent.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="site-nav" aria-label="Navigation principale">
+    <div class="container nav-inner">
+      <a href="#" aria-label="CrypTax Offline — Accueil">
+        <img src="assets/logos/cryptax-logo-transparent.svg" alt="CrypTax Offline" class="nav-logo" width="180" height="36">
+      </a>
+      <div class="nav-links" role="list">
+        <a href="#pourquoi" role="listitem">Pourquoi offline</a>
+        <a href="#fonctionnement" role="listitem">Fonctionnement</a>
+        <a href="#fonctionnalites" role="listitem">Fonctionnalités</a>
+        <a href="#tarif" role="listitem">Tarif</a>
+        <a href="#faq" role="listitem">FAQ</a>
+      </div>
+      <a href="#tarif" class="nav-cta">Acheter — 19,99 €</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="hero">
+      <div class="container hero-content">
+        <img src="assets/logos/cryptax-icon-transparent.svg" alt="" class="hero-icon" aria-hidden="true" width="80" height="80">
+
+        <h1>Reprenez le contrôle de vos données.</h1>
+
+        <p class="hero-subtitle">
+          Calculez vos plus-values imposables et préparez vos formulaires fiscaux (2086,&nbsp;3916-bis) sans exposer vos données à des tiers. Aucun serveur. Aucun compte. Aucun stockage distant. Disponible sur Windows (Mac prévu ultérieurement).
+        </p>
+
+        <ul class="hero-bullets" role="list">
+          <li><span class="check" aria-hidden="true">&#10003;</span> Formulaire 2086 pré-rempli, prêt à reporter sur impots.gouv.fr</li>
+          <li><span class="check" aria-hidden="true">&#10003;</span> Formulaire 3916-bis pré-rempli (plateformes étrangères détectées automatiquement)</li>
+          <li><span class="check" aria-hidden="true">&#10003;</span> Calcul fiscal automatique (article 150 VH bis) + justificatif PDF détaillé</li>
+          <li><span class="check" aria-hidden="true">&#10003;</span> Paiement unique · Transactions illimitées · Aucun compte. Aucun serveur. Aucune donnée transmise.</li>
+        </ul>
+
+        <div class="hero-ctas">
+          <a href="#tarif" class="btn btn-primary">Acheter — 19,99 €</a>
+          <a href="#fonctionnement" class="btn btn-secondary">Voir le fonctionnement</a>
+        </div>
+
+        <p class="hero-reassurance">
+          Paiement Stripe<span>·</span>Téléchargement immédiat<span>·</span>Sans abonnement<span>·</span>Transactions illimitées
+        </p>
+
+        <div class="trust-badges" role="list">
+          <span class="trust-badge" role="listitem">0 serveur</span>
+          <span class="trust-badge" role="listitem">0 compte</span>
+          <span class="trust-badge" role="listitem">0 tracking</span>
+          <span class="trust-badge" role="listitem">100 % offline</span>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== WHY OFFLINE ========== -->
+    <section id="pourquoi" aria-labelledby="pourquoi-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Pourquoi offline</span>
+          <h2 id="pourquoi-title">Vos données vous appartiennent. Pas à un serveur.</h2>
+          <p class="section-subtitle">CrypTax Offline n'est pas un service en ligne. Tous les calculs sont effectués localement sur votre machine. Aucune donnée n'est jamais collectée, transmise, stockée à distance ou accessible par un tiers. Vous pouvez supprimer vos fichiers à tout moment.</p>
+        </div>
+
+        <div class="pillars-grid">
+          <div class="pillar-card">
+            <span class="pillar-number">1</span>
+            <h3>Volume illimité</h3>
+            <p>Aucune restriction sur le nombre de transactions ni sur la profondeur de l'historique. Importez autant de CSV que nécessaire, sur autant d'années fiscales que vous le souhaitez.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-number">2</span>
+            <h3>Confidentialité absolue</h3>
+            <p>Aucune donnée n'est collectée, transmise, stockée à distance ou accessible par un tiers. Aucun compte. Aucun serveur. Aucune donnée transmise. Vos fichiers restent exclusivement sur votre machine.</p>
+          </div>
+          <div class="pillar-card">
+            <span class="pillar-number">3</span>
+            <h3>Paiement unique</h3>
+            <p>19,99 € une seule fois pour le mode CSV offline. Pas d'abonnement mensuel, pas de fonctionnalité verrouillée dans cette offre. Les offres API et Pro sont des produits séparés.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== SAAS COMPARISON ========== -->
+    <section id="comparaison" aria-labelledby="comparaison-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Sécurité</span>
+          <h2 id="comparaison-title">Plateforme en ligne vs. logiciel local</h2>
+          <p class="section-subtitle">La plupart des outils fiscaux crypto sont des services en ligne. Vos données transitent par leurs serveurs. CrypTax Offline fonctionne différemment.</p>
+        </div>
+
+        <div class="comparison-grid">
+          <div class="comparison-card comparison-saas">
+            <h3>Service en ligne (SaaS)</h3>
+            <ul class="comparison-list">
+              <li>
+                <span class="comparison-icon negative" aria-hidden="true">&#10007;</span>
+                <div>
+                  <strong>Données stockées sur des serveurs tiers</strong>
+                  <p>Vos historiques de transactions, adresses de wallets et clés API sont hébergés sur des infrastructures que vous ne contrôlez pas.</p>
+                </div>
+              </li>
+              <li>
+                <span class="comparison-icon negative" aria-hidden="true">&#10007;</span>
+                <div>
+                  <strong>Exposition aux fuites et aux intrusions</strong>
+                  <p>Les plateformes centralisées constituent des cibles. Une fuite de données peut exposer votre historique financier complet.</p>
+                </div>
+              </li>
+              <li>
+                <span class="comparison-icon negative" aria-hidden="true">&#10007;</span>
+                <div>
+                  <strong>Compte obligatoire, tracking possible</strong>
+                  <p>Inscription requise, cookies, télémétrie et analytics sont courants. Vos données peuvent être partagées ou revendues.</p>
+                </div>
+              </li>
+              <li>
+                <span class="comparison-icon negative" aria-hidden="true">&#10007;</span>
+                <div>
+                  <strong>Dépendance à un service externe</strong>
+                  <p>Si le service ferme, change ses tarifs ou subit une panne, vous perdez l'accès à vos calculs et justificatifs.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="comparison-card comparison-offline">
+            <h3>CrypTax Offline</h3>
+            <ul class="comparison-list">
+              <li>
+                <span class="comparison-icon positive" aria-hidden="true">&#10003;</span>
+                <div>
+                  <strong>Données exclusivement sur votre machine</strong>
+                  <p>Aucun fichier ne quitte votre ordinateur. Aucun serveur distant, aucun hébergement tiers, aucune base de données externe.</p>
+                </div>
+              </li>
+              <li>
+                <span class="comparison-icon positive" aria-hidden="true">&#10003;</span>
+                <div>
+                  <strong>Aucune surface d'attaque réseau</strong>
+                  <p>Pas de serveur = pas de cible. Vos données ne peuvent pas être exposées par une fuite sur une infrastructure tierce.</p>
+                </div>
+              </li>
+              <li>
+                <span class="comparison-icon positive" aria-hidden="true">&#10003;</span>
+                <div>
+                  <strong>Aucun compte, aucun tracking</strong>
+                  <p>Pas d'inscription, pas de cookie, pas de télémétrie, pas d'analytics. Aucune donnée personnelle n'est collectée ni transmise.</p>
+                </div>
+              </li>
+              <li>
+                <span class="comparison-icon positive" aria-hidden="true">&#10003;</span>
+                <div>
+                  <strong>Autonomie totale</strong>
+                  <p>Le logiciel fonctionne sans connexion internet. Vos calculs et justificatifs restent sur votre machine, accessibles hors-ligne. Vous pouvez les supprimer à tout moment.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="security-recommendation">
+          <h4>Recommandation de sécurité</h4>
+          <p>CrypTax Offline protège vos données en ne les transmettant jamais. Pour renforcer la sécurité de votre poste de travail, nous vous recommandons de :</p>
+          <ul>
+            <li>Maintenir votre système d'exploitation et vos logiciels à jour</li>
+            <li>Protéger votre session par un mot de passe robuste</li>
+            <li>Activer le chiffrement du disque (BitLocker sur Windows, FileVault sur Mac)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section id="fonctionnement" aria-labelledby="fonctionnement-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Fonctionnement</span>
+          <h2 id="fonctionnement-title">Trois étapes. Aucune connexion requise.</h2>
+          <p class="section-subtitle">Du fichier CSV brut aux valeurs prêtes pour votre déclaration.</p>
+        </div>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <span class="step-number">1</span>
+            <h3>Importez vos CSV</h3>
+            <p>Exportez l'historique de transactions depuis vos plateformes (exchanges, wallets). Importez les fichiers CSV dans CrypTax Offline.</p>
+          </div>
+
+          <div class="step-connector" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">2</span>
+            <h3>Calcul automatique</h3>
+            <p>Le logiciel applique la méthode du prix moyen pondéré d'acquisition (PMPA) conformément à l'article 150&nbsp;VH&nbsp;bis du CGI. Tout est calculé localement.</p>
+          </div>
+
+          <div class="step-connector" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </div>
+
+          <div class="step-card">
+            <span class="step-number">3</span>
+            <h3>Déclarez</h3>
+            <p>Récupérez les formulaires 2086 et 3916-bis pré-remplis, ainsi que le justificatif fiscal détaillé (PDF). Reportez les valeurs sur impots.gouv.fr. Le justificatif est conservable en cas de contrôle.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== FEATURES & LIMITS ========== -->
+    <section id="fonctionnalites" aria-labelledby="fonctionnalites-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Fonctionnalités</span>
+          <h2 id="fonctionnalites-title">Ce que CrypTax Offline fait — et ne fait pas</h2>
+          <p class="section-subtitle">Aucune promesse excessive. Voici exactement ce que le logiciel couvre.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="features-card">
+            <h3>
+              <span class="icon-yes" aria-hidden="true">&#10003;</span>
+              Ce que le logiciel fait
+            </h3>
+            <ul class="features-list" role="list">
+              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Formulaire 2086 pré-rempli : toutes les valeurs calculées, prêtes à reporter sur impots.gouv.fr</li>
+              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Calcul fiscal automatique (méthode PMPA, article 150 VH bis du CGI)</li>
+              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Justificatif fiscal détaillé et conservable : méthode, détail des cessions, récapitulatif annuel (PDF)</li>
+              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Import de fichiers CSV (achats, ventes, échanges et transferts non imposables entre wallets et exchanges), pour une vision globale et unifiée de l'ensemble de vos transactions</li>
+              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Formulaire 3916-bis pré-rempli : plateformes étrangères détectées automatiquement à partir des CSV importés</li>
+              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Transactions illimitées, historique multi-années</li>
+              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Fonctionne 100 % hors-ligne — aucune donnée collectée, transmise ou stockée à distance</li>
+              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Windows (Mac prévu ultérieurement)</li>
+            </ul>
+          </div>
+
+          <div class="features-card">
+            <h3>
+              <span class="icon-no" aria-hidden="true">&#10007;</span>
+              Limites et périmètre
+            </h3>
+
+            <h4 class="features-subheading">Non pris en charge</h4>
+            <ul class="features-list" role="list">
+              <li><span class="marker no" aria-hidden="true">&#10007;</span> Pas de télédéclaration automatique — la saisie finale est effectuée par vos soins sur impots.gouv.fr</li>
+              <li><span class="marker no" aria-hidden="true">&#10007;</span> Pas de conseil fiscal personnalisé — en cas de doute, consultez un professionnel</li>
+              <li><span class="marker no" aria-hidden="true">&#10007;</span> Pas de support DeFi (farming, liquidity pools, bridges…)</li>
+              <li><span class="marker no" aria-hidden="true">&#10007;</span> NFT (en cours d'étude)</li>
+              <li><span class="marker no" aria-hidden="true">&#10007;</span> Staking, lending, yield (en cours d'étude)</li>
+              <li><span class="marker no" aria-hidden="true">&#10007;</span> Futures, options, dérivés (en cours de développement)</li>
+            </ul>
+
+            <h4 class="features-subheading">Disponible dans d'autres versions (prévues)</h4>
+            <ul class="features-list" role="list">
+              <li><span class="marker no" aria-hidden="true">&#8212;</span> Connexions API optionnelles — prévues dans l'offre CrypTax Offline + API (non obligatoires, non incluses dans le mode CSV)</li>
+              <li><span class="marker no" aria-hidden="true">&#8212;</span> Régimes fiscaux professionnels (BNC/BIC) — prévus dans CrypTax Pro, produit séparé</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="features-responsibility">
+          <p><strong>Responsabilité :</strong> les calculs et formulaires pré-remplis sont basés exclusivement sur les données fournies par l'utilisateur (fichiers CSV). CrypTax Offline ne vérifie pas l'exactitude ni l'exhaustivité des données importées. En cas de doute sur votre situation fiscale, consultez un professionnel habilité.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== 3916-BIS ========== -->
+    <section id="3916-bis" aria-labelledby="3916bis-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Formulaire 3916-bis</span>
+          <h2 id="3916bis-title">Comptes d'actifs numériques à l'étranger — pré-rempli automatiquement</h2>
+          <p class="section-subtitle">Les résidents fiscaux français doivent déclarer chaque compte d'actifs numériques détenu sur une plateforme établie à l'étranger. CrypTax Offline pré-remplit le formulaire 3916-bis à partir de vos CSV.</p>
+        </div>
+
+        <div class="cerfa3916-content">
+          <div class="cerfa3916-explanation">
+            <h3>Détection locale, aucune connexion</h3>
+            <p>Le logiciel analyse localement les CSV importés, identifie les plateformes étrangères utilisées et génère un formulaire 3916-bis pré-rempli avec les informations nécessaires : désignation de la plateforme, pays d'établissement et adresse du site.</p>
+
+            <div class="cerfa3916-example">
+              <h4>Exemple de détection</h4>
+              <table class="cerfa3916-table" role="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Plateforme</th>
+                    <th scope="col">Pays</th>
+                    <th scope="col">URL</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Kraken</td>
+                    <td>États-Unis</td>
+                    <td>www.kraken.com</td>
+                  </tr>
+                  <tr>
+                    <td>Binance</td>
+                    <td>Îles Caïmans</td>
+                    <td>www.binance.com</td>
+                  </tr>
+                  <tr>
+                    <td>KuCoin</td>
+                    <td>Seychelles</td>
+                    <td>www.kucoin.com</td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="cerfa3916-example-note">Données illustratives. Les plateformes détectées dépendent de vos CSV importés.</p>
+            </div>
+          </div>
+
+          <div class="cerfa3916-disclaimer">
+            <h4>Important</h4>
+            <ul>
+              <li>Le formulaire 3916-bis pré-rempli est un <strong>mémo informatif</strong> généré localement. Il ne constitue pas une télédéclaration.</li>
+              <li>Aucune donnée n'est transmise. La détection est effectuée 100 % hors-ligne à partir de vos fichiers CSV.</li>
+              <li>La déclaration finale est effectuée par vos soins sur <strong>impots.gouv.fr</strong>.</li>
+              <li>En cas de doute sur votre obligation déclarative, consultez un professionnel habilité.</li>
+            </ul>
+
+            <div class="cerfa3916-sanctions">
+              <h4>Sanctions en cas de non-déclaration</h4>
+              <p>L'omission de déclaration d'un compte d'actifs numériques à l'étranger est sanctionnée par une amende de <strong>750 € par compte</strong> non déclaré (1 500 € si la valeur des comptes dépasse 50 000 €). En cas de redressement, une majoration de <strong>80 %</strong> peut s'appliquer sur les droits rappelés.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== COMPATIBILITY ========== -->
+    <section id="compatibilite" class="compat-section" aria-labelledby="compat-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Compatibilité</span>
+          <h2 id="compat-title">Exchanges, wallets, blockchains</h2>
+          <p class="section-subtitle">Importez les CSV exportés depuis vos plateformes. Tout traitement est local.</p>
+        </div>
+
+        <div class="compat-grid">
+          <div class="compat-card">
+            <h3>Exchanges</h3>
+            <div class="compat-logos">
+              <div class="compat-logo-item">
+                <img src="assets/logos/Exchanges/Binance.svg" alt="Binance" class="compat-logo" width="32" height="32">
+                <span>Binance</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/Exchanges/Coinbase.svg" alt="Coinbase" class="compat-logo" width="32" height="32">
+                <span>Coinbase</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/Exchanges/Kraken.svg" alt="Kraken" class="compat-logo" width="32" height="32">
+                <span>Kraken</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/Exchanges/Bitstamp.svg" alt="Bitstamp" class="compat-logo" width="32" height="32">
+                <span>Bitstamp</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/Exchanges/Bitpanda.svg" alt="Bitpanda" class="compat-logo" width="32" height="32">
+                <span>Bitpanda</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/Exchanges/OKX.svg" alt="OKX" class="compat-logo" width="32" height="32">
+                <span>OKX</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/Exchanges/Crypto.com.svg" alt="Crypto.com" class="compat-logo" width="32" height="32">
+                <span>Crypto.com</span>
+              </div>
+            </div>
+          </div>
+          <div class="compat-card">
+            <h3>Wallets</h3>
+            <div class="compat-logos">
+              <div class="compat-logo-item">
+                <img src="assets/logos/wallets/Ledger.svg" alt="Ledger" class="compat-logo" width="32" height="32">
+                <span>Ledger</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/wallets/Trezor.svg" alt="Trezor" class="compat-logo" width="32" height="32">
+                <span>Trezor</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/wallets/Metamask.svg" alt="MetaMask" class="compat-logo" width="32" height="32">
+                <span>MetaMask</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/wallets/Exodus.svg" alt="Exodus" class="compat-logo" width="32" height="32">
+                <span>Exodus</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/wallets/Trust%20Wallet.svg" alt="Trust Wallet" class="compat-logo" width="32" height="32">
+                <span>Trust Wallet</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/wallets/Electrum.svg" alt="Electrum" class="compat-logo" width="32" height="32">
+                <span>Electrum</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/wallets/Phantom.svg" alt="Phantom" class="compat-logo" width="32" height="32">
+                <span>Phantom</span>
+              </div>
+            </div>
+          </div>
+          <div class="compat-card">
+            <h3>Blockchains</h3>
+            <div class="compat-logos">
+              <div class="compat-logo-item">
+                <img src="assets/logos/Blockchain/Bitcoin.svg" alt="Bitcoin" class="compat-logo" width="32" height="32">
+                <span>Bitcoin</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/Blockchain/Ethereum.svg" alt="Ethereum" class="compat-logo" width="32" height="32">
+                <span>Ethereum</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/Blockchain/Solana.svg" alt="Solana" class="compat-logo" width="32" height="32">
+                <span>Solana</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/Blockchain/Polygon.svg" alt="Polygon" class="compat-logo" width="32" height="32">
+                <span>Polygon</span>
+              </div>
+              <div class="compat-logo-item">
+                <img src="assets/logos/Blockchain/BNB%20Chain.svg" alt="BNB Chain" class="compat-logo" width="32" height="32">
+                <span>BNB Chain</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="compat-note">Le logiciel traite les fichiers CSV standard. Tout exchange ou wallet permettant l'export CSV est potentiellement compatible.</p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== PRICING ========== -->
+    <section id="tarif" class="pricing-section" aria-labelledby="tarif-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Tarif</span>
+          <h2 id="tarif-title">Une offre. Un prix. Pas d'abonnement.</h2>
+        </div>
+
+        <div class="pricing-card">
+          <p class="pricing-tier-name">CrypTax Offline — Mode CSV</p>
+          <div class="pricing-amount">19,99<span class="currency">&nbsp;€</span></div>
+          <p class="pricing-label">Paiement unique — licence à vie</p>
+
+          <ul class="pricing-features" role="list">
+            <li><span class="check" aria-hidden="true">&#10003;</span> Toutes les fonctionnalités du mode CSV offline</li>
+            <li><span class="check" aria-hidden="true">&#10003;</span> Transactions illimitées, historique multi-années</li>
+            <li><span class="check" aria-hidden="true">&#10003;</span> Formulaire 2086 pré-rempli + justificatif fiscal PDF</li>
+            <li><span class="check" aria-hidden="true">&#10003;</span> Formulaire 3916-bis pré-rempli (plateformes étrangères)</li>
+            <li><span class="check" aria-hidden="true">&#10003;</span> 100 % offline, aucun compte requis</li>
+            <li><span class="check" aria-hidden="true">&#10003;</span> Mises à jour du mode CSV incluses</li>
+          </ul>
+
+          <!-- PLACEHOLDER: replace href with Stripe Checkout URL -->
+          <a href="https://checkout.stripe.com/PLACEHOLDER" class="btn btn-primary pricing-cta">Acheter maintenant</a>
+
+          <p class="pricing-reassurance">
+            Paiement sécurisé via Stripe · Téléchargement immédiat après paiement · Aucun abonnement
+          </p>
+        </div>
+
+        <p class="pricing-note">
+          <strong>Note :</strong> les connexions API et les régimes fiscaux professionnels font partie d'offres séparées (voir ci-dessous). Cette licence couvre exclusivement le mode CSV offline.
+        </p>
+
+        <p class="pricing-note">
+          <strong>Note sur la licence :</strong> chaque licence est associée à un identifiant local anonyme et le PDF généré porte un filigrane discret. Cela permet de protéger le logiciel sans serveur de vérification, sans compte utilisateur et sans limitation technique. Merci de ne pas redistribuer votre copie.
+        </p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== FUTURE OFFERS ========== -->
+    <section id="offres-futures" aria-labelledby="offres-futures-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">À venir</span>
+          <h2 id="offres-futures-title">Offres futures (non disponibles)</h2>
+          <p class="section-subtitle">Ces produits sont en cours de développement. Ils ne sont pas encore disponibles à l'achat.</p>
+        </div>
+
+        <div class="future-grid">
+          <div class="future-card">
+            <span class="future-badge">Prévu</span>
+            <h3>CrypTax Offline + API</h3>
+            <div class="future-price">29,99 €</div>
+            <p>Connexions API locales, optionnelles et chiffrées. Les données sont récupérées directement sur votre ordinateur — aucun serveur tiers, aucun stockage distant, aucune interception possible. Import automatisé en complément du mode CSV, sans compromettre le principe offline. Paiement unique.</p>
+          </div>
+          <div class="future-card">
+            <span class="future-badge">Prévu</span>
+            <h3>CrypTax Pro</h3>
+            <div class="future-price">69,99 €</div>
+            <p>Régimes fiscaux professionnels (BNC/BIC) pour les crypto-actifs. Produit séparé, destiné aux professionnels soumis à des obligations déclaratives spécifiques. Paiement unique.</p>
+          </div>
+        </div>
+
+        <p class="future-note">Ces tarifs sont indicatifs et susceptibles d'évoluer. Les offres futures seront des produits distincts, non inclus dans la licence Mode CSV.</p>
+
+        <p class="future-note future-upgrade">
+          <strong>Mise à niveau :</strong> les utilisateurs ayant acheté CrypTax Offline — Mode CSV recevront un code de réduction personnel pour passer à la version API lorsqu'elle sera disponible. Prix indicatif de mise à niveau : 10&nbsp;€.
+        </p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== FAQ ========== -->
+    <section id="faq" aria-labelledby="faq-title">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Questions fréquentes</span>
+          <h2 id="faq-title">FAQ</h2>
+        </div>
+
+        <div class="faq-grid" role="list">
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Le calcul est-il conforme à la législation fiscale française ?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>CrypTax Offline applique la méthode du prix moyen pondéré d'acquisition (PMPA) définie par l'article 150 VH bis du Code Général des Impôts. Les valeurs produites correspondent aux cases du formulaire CERFA 2086. Le logiciel ne fournit cependant pas de conseil fiscal personnalisé : en cas de doute, consultez un professionnel.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Mes données sont-elles en sécurité ?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Absolument. Aucune donnée ne quitte votre ordinateur. Il n'y a aucun serveur distant, aucune télémétrie, aucun cookie, aucun compte utilisateur. Vos fichiers CSV et les résultats restent exclusivement sur votre machine locale.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Qu'est-ce que le logiciel produit exactement ?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Le logiciel calcule les plus-values imposables et produit deux résultats : les valeurs numériques correspondant aux cases du CERFA 2086 (211–224 et 51–52) que vous reportez dans votre déclaration, et un justificatif PDF détaillé comprenant la méthode de calcul appliquée, le détail de chaque cession et un récapitulatif annuel.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Pourquoi la DeFi, les NFT et le staking ne sont-ils pas supportés ?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Ces opérations impliquent des traitements fiscaux complexes, souvent sujets à interprétation et non encore pleinement encadrés. Plutôt que de produire des résultats incertains, CrypTax Offline se concentre sur les transactions spot (achat, vente, échange) pour lesquelles le cadre fiscal est clair et bien défini.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Le logiciel est-il disponible sur Mac ?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>CrypTax Offline est actuellement disponible sur Windows. Une version Mac est prévue ultérieurement. Si vous souhaitez être informé de sa disponibilité, contactez-nous par e-mail.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Que se passe-t-il après le paiement ?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Après le paiement sécurisé via Stripe, vous recevez immédiatement un lien de téléchargement. Aucun compte à créer, aucune activation en ligne. Vous installez le logiciel et commencez à l'utiliser immédiatement, même sans connexion internet.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Le logiciel fait-il ma déclaration automatiquement ?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Non. CrypTax Offline calcule les valeurs et génère le justificatif. Vous devez ensuite reporter vous-même les valeurs dans votre déclaration de revenus (formulaire CERFA 2086). Le logiciel ne se connecte à aucun service de l'administration fiscale.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Le logiciel inclut-il des connexions API aux exchanges ?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Non. La version actuelle (Mode CSV) fonctionne exclusivement par import de fichiers CSV. Les connexions API locales et chiffrées sont prévues dans une offre séparée (CrypTax Offline + API), qui n'est pas encore disponible. La licence Mode CSV ne donne pas accès aux futures fonctionnalités API.</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
+              <span>Le logiciel pré-remplit-il le formulaire 3916-bis (comptes à l'étranger) ?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p>Oui. Le logiciel détecte automatiquement les plateformes étrangères présentes dans vos CSV importés et génère un formulaire 3916-bis pré-rempli (désignation, pays, URL). Ce document est un mémo informatif généré localement — aucune donnée n'est transmise. La déclaration finale reste à effectuer par vos soins sur impots.gouv.fr. En cas de doute sur votre obligation déclarative, consultez un professionnel.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="assets/logos/cryptax-logo-transparent.svg" alt="CrypTax Offline" class="footer-logo" width="120" height="22">
+
+      <div class="footer-text">
+        <p>
+          CrypTax Offline est un logiciel de calcul fiscal. Il ne constitue pas un conseil fiscal personnalisé. En cas de doute sur votre situation, consultez un professionnel habilité.
+        </p>
+        <br>
+        <p>
+          Aucune donnée personnelle n'est collectée, stockée ou transmise. Aucun cookie, aucun traceur, aucune télémétrie.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <!-- PLACEHOLDER: replace with actual legal entity name and email -->
+        <span>Cryptax Offline est édité par un entrepreneur individuel établi en France.</span>
+        <a href="mailto:CryptaxOffline@Proton.me">CryptaxOffline@Proton.me</a>
+        <a href="#faq">FAQ</a>
+      </div>
+    </div>
+    <div class="container" style="text-align:center; margin-top: var(--sp-6);">
+      <p class="footer-disclaimer">
+        CrypTax Offline calcule et prépare les données nécessaires aux formulaires 2086 et 3916-bis.
+        Les calculs et formulaires pré-remplis sont basés exclusivement sur les données fournies par l'utilisateur (fichiers CSV). CrypTax Offline ne vérifie pas l'exactitude ni l'exhaustivité des données importées.
+        La déclaration finale est effectuée par l'utilisateur sur impots.gouv.fr.
+        CrypTax Offline ne transmet aucune donnée et ne constitue pas un conseil fiscal personnalisé.
+      </p>
+      <p class="footer-copy">&copy; 2025 CrypTax Offline. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- ========== FAQ Toggle Script ========== -->
+  <script>
+    (function () {
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(function (item) {
+        const btn = item.querySelector('.faq-question');
+        btn.addEventListener('click', function () {
+          const isOpen = item.classList.contains('open');
+          // Close all
+          items.forEach(function (i) {
+            i.classList.remove('open');
+            i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          });
+          // Open clicked if it was closed
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+</html>
