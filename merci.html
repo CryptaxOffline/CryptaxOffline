@@ -61,7 +61,49 @@
     .merci-download-cta {
       width: 100%;
       max-width: 360px;
+      margin-bottom: var(--sp-3);
+    }
+
+    .merci-download-cta:disabled,
+    .merci-download-cta.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .merci-download-cta.loading {
+      opacity: 0.7;
+      cursor: wait;
+    }
+
+    .merci-download-note {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
       margin-bottom: var(--sp-4);
+      line-height: 1.5;
+    }
+
+    .merci-error {
+      background: rgba(107, 64, 64, 0.3);
+      border: 1px solid var(--color-red-muted);
+      border-radius: var(--radius);
+      padding: var(--sp-4) var(--sp-5);
+      margin-bottom: var(--sp-6);
+      text-align: center;
+    }
+
+    .merci-error p {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .merci-error a {
+      color: var(--color-text);
+      text-decoration: underline;
+      text-decoration-color: var(--color-border);
+      text-underline-offset: 2px;
     }
 
     .merci-home-link {
@@ -190,7 +232,7 @@
     }
 
     .merci-support {
-      margin-bottom: var(--sp-10);
+      margin-bottom: var(--sp-6);
     }
 
     .merci-support p {
@@ -208,6 +250,30 @@
     }
 
     .merci-support a:hover {
+      color: var(--color-white);
+    }
+
+    .merci-support-final {
+      margin-bottom: var(--sp-10);
+      padding-top: var(--sp-4);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .merci-support-final p {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+    }
+
+    .merci-support-final a {
+      color: var(--color-text-muted);
+      text-decoration: underline;
+      text-decoration-color: var(--color-border);
+      text-underline-offset: 2px;
+      transition: color var(--duration) var(--ease);
+    }
+
+    .merci-support-final a:hover {
       color: var(--color-white);
     }
 
@@ -261,10 +327,17 @@
 
       <p class="merci-privacy">Aucun compte. Aucun serveur. Aucune donnée transmise.</p>
 
-      <!-- TODO: Replace DOWNLOAD_URL with the real download file URL -->
-      <a href="DOWNLOAD_URL" class="btn btn-primary merci-download-cta">Télécharger CrypTax Offline</a>
+      <!-- Error message (hidden by default, shown if session_id missing) -->
+      <div id="merci-error" class="merci-error" style="display: none;">
+        <p>Session de paiement introuvable. Si vous avez déjà effectué le paiement, contactez le support avec votre reçu Stripe : <a href="mailto:CryptaxOffline@Proton.me">CryptaxOffline@Proton.me</a></p>
+      </div>
 
-      <br>
+      <!-- Download CTA -->
+      <button id="download-cta" class="btn btn-primary merci-download-cta" type="button" disabled>
+        Télécharger CrypTax Offline
+      </button>
+
+      <p class="merci-download-note">Le téléchargement est sécurisé. Vos données ne sont jamais envoyées à nos serveurs.</p>
 
       <a href="./" class="merci-home-link">&larr; Retour à l'accueil</a>
 
@@ -302,7 +375,12 @@
 
       <!-- Support -->
       <div class="merci-support">
-        <p>Un problème ? Contactez-nous à <a href="mailto:cryptaxoffline@proton.me">cryptaxoffline@proton.me</a></p>
+        <p>Un problème ? Contactez-nous à <a href="mailto:CryptaxOffline@Proton.me">CryptaxOffline@Proton.me</a></p>
+      </div>
+
+      <!-- Final support line -->
+      <div class="merci-support-final">
+        <p>Besoin d'aide ? Contact : <a href="mailto:CryptaxOffline@Proton.me">CryptaxOffline@Proton.me</a> (merci de joindre votre reçu Stripe).</p>
       </div>
 
     </div>
@@ -318,5 +396,72 @@
     </div>
   </footer>
 
+  <!-- ========== Download Logic ========== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var DOWNLOAD_ENDPOINT = 'https://cryptaxoffline-download.admin-cryptaxoffline.workers.dev/download';
+
+      var downloadBtn = document.getElementById('download-cta');
+      var errorBox = document.getElementById('merci-error');
+
+      // Parse session_id from URL
+      function getSessionId() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          return params.get('session_id') || null;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      var sessionId = getSessionId();
+
+      if (!sessionId) {
+        // No session_id: show error, keep button disabled
+        if (errorBox) {
+          errorBox.style.display = 'block';
+        }
+        if (downloadBtn) {
+          downloadBtn.disabled = true;
+          downloadBtn.classList.add('disabled');
+        }
+      } else {
+        // Valid session_id: enable button
+        if (downloadBtn) {
+          downloadBtn.disabled = false;
+          downloadBtn.classList.remove('disabled');
+
+          downloadBtn.addEventListener('click', function () {
+            // Prevent double-clicks
+            if (downloadBtn.classList.contains('loading')) {
+              return;
+            }
+
+            // Set loading state
+            downloadBtn.classList.add('loading');
+            downloadBtn.disabled = true;
+            downloadBtn.textContent = 'Téléchargement en cours…';
+
+            // Build download URL
+            var downloadUrl = DOWNLOAD_ENDPOINT + '?session_id=' + encodeURIComponent(sessionId);
+
+            // Redirect to download endpoint
+            window.location.href = downloadUrl;
+
+            // Reset button after a delay (in case user returns to page)
+            setTimeout(function () {
+              downloadBtn.classList.remove('loading');
+              downloadBtn.disabled = false;
+              downloadBtn.textContent = 'Télécharger CrypTax Offline';
+            }, 5000);
+          });
+        }
+      }
+    })();
+  </script>
+
 </body>
 </html>
+
