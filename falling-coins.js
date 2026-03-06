@@ -20,8 +20,8 @@
     maxDuration: 28,
     minSize: 36,
     maxSize: 62,
-    minOpacity: 0.35,
-    maxOpacity: 0.50,
+    minOpacity: 0.50,
+    maxOpacity: 0.70,
     maxCoins: 30
   };
 
@@ -35,7 +35,7 @@
     '85%{opacity:var(--coin-opacity)}' +
     '100%{transform:translateY(calc(100vh + 60px)) rotate(var(--coin-rotation));opacity:0}}' +
     '.falling-coin{position:absolute;top:0;will-change:transform,opacity;animation:coinFall var(--coin-duration) linear forwards;' +
-    'filter:grayscale(0.3);user-select:none}';
+    'user-select:none}';
   document.head.appendChild(style);
 
   // Create container
