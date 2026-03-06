@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Merci — CrypTax Offline</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/Cryptax%20Icon%20Bleu.svg">
+  <link rel="icon" type="image/png" href="assets/logos/Cryptax%20Icon%20Bleu.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260205">
+  <style>
+    /* Page-specific styles for merci.html */
+    .merci-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .merci-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(64px + var(--sp-16)) 0 var(--sp-16);
+    }
+
+    .merci-content {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .merci-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto var(--sp-8);
+      opacity: 0.9;
+    }
+
+    .merci-title {
+      margin-bottom: var(--sp-4);
+    }
+
+    .merci-stripe {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      margin-bottom: var(--sp-3);
+      line-height: 1.6;
+    }
+
+    .merci-privacy {
+      font-size: 0.8125rem;
+      color: var(--color-text-dim);
+      margin-bottom: var(--sp-10);
+      letter-spacing: 0.01em;
+    }
+
+    .os-choice {
+      margin-bottom: var(--sp-6);
+    }
+
+    .os-choice-title {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-white);
+      margin-bottom: var(--sp-6);
+    }
+
+    .os-choice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-4);
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .os-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-3);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6) var(--sp-4);
+      cursor: pointer;
+      overflow: visible;
+      transition: border-color var(--duration) var(--ease), transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease);
+      font-family: inherit;
+      color: inherit;
+    }
+
+    .os-card:hover:not(:disabled) {
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 24px rgba(201, 168, 76, 0.15);
+    }
+
+    .os-card:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .os-card-logo {
+      width: auto;
+      height: 42px;
+      max-width: 140px;
+      object-fit: contain;
+      opacity: 0.9;
+    }
+
+    .os-card-label {
+      font-size: 0.8125rem;
+      font-weight: 550;
+      color: var(--color-text-muted);
+    }
+
+    .os-choice-note {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      margin-top: var(--sp-4);
+      margin-bottom: var(--sp-4);
+      line-height: 1.5;
+    }
+
+    .merci-error {
+      background: rgba(107, 64, 64, 0.3);
+      border: 1px solid var(--color-red-muted);
+      border-radius: var(--radius);
+      padding: var(--sp-4) var(--sp-5);
+      margin-bottom: var(--sp-6);
+      text-align: center;
+    }
+
+    .merci-error p {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .merci-error a {
+      color: var(--color-text);
+      text-decoration: underline;
+      text-decoration-color: var(--color-border);
+      text-underline-offset: 2px;
+    }
+
+    .merci-home-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: var(--color-text-dim);
+      margin-bottom: var(--sp-16);
+      transition: color var(--duration) var(--ease);
+    }
+
+    .merci-home-link:hover {
+      color: var(--color-text-muted);
+    }
+
+    .merci-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6) var(--sp-8);
+      text-align: left;
+      margin-bottom: var(--sp-8);
+    }
+
+    .merci-card h3 {
+      font-size: 0.9375rem;
+      margin-bottom: var(--sp-4);
+    }
+
+    .merci-card ol {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      counter-reset: step;
+    }
+
+    .merci-card ol li {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      padding-left: var(--sp-6);
+      position: relative;
+      counter-increment: step;
+    }
+
+    .merci-card ol li::before {
+      content: counter(step) ".";
+      position: absolute;
+      left: 0;
+      color: var(--color-text-dim);
+      font-weight: 550;
+      font-size: 0.8125rem;
+      font-family: var(--font-mono);
+    }
+
+    .merci-card-text {
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      margin-bottom: var(--sp-3);
+    }
+
+    .merci-card-text:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .merci-card-steps strong {
+      color: var(--color-text);
+      font-weight: 550;
+    }
+
+    .merci-card-hint {
+      font-size: 0.8125rem;
+      color: var(--color-text-dim);
+      margin-top: var(--sp-3);
+      margin-bottom: 0;
+    }
+
+    .merci-card-hint a {
+      color: var(--color-text-muted);
+      text-decoration: underline;
+      text-decoration-color: var(--color-border);
+      text-underline-offset: 2px;
+      transition: color var(--duration) var(--ease);
+    }
+
+    .merci-card-hint a:hover {
+      color: var(--color-white);
+    }
+
+    .merci-checksum-box {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: var(--sp-4) var(--sp-5);
+      margin: var(--sp-4) 0;
+      overflow-x: auto;
+    }
+
+    .merci-checksum-box code {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      line-height: 1.5;
+      word-break: break-all;
+    }
+
+    .merci-card-optional {
+      opacity: 0.75;
+    }
+
+    .merci-card-optional h3 {
+      font-size: 0.875rem;
+      font-weight: 550;
+      color: var(--color-text-muted);
+    }
+
+    .merci-card-optional .merci-card-text {
+      font-size: 0.8125rem;
+    }
+
+    .merci-receipt {
+      font-size: 0.8125rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+      margin-bottom: var(--sp-8);
+    }
+
+    .merci-support {
+      margin-bottom: var(--sp-6);
+    }
+
+    .merci-support p {
+      font-size: 0.8125rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+    }
+
+    .merci-support a {
+      color: var(--color-text-muted);
+      text-decoration: underline;
+      text-decoration-color: var(--color-border);
+      text-underline-offset: 2px;
+      transition: color var(--duration) var(--ease);
+    }
+
+    .merci-support a:hover {
+      color: var(--color-white);
+    }
+
+    .merci-support-final {
+      margin-bottom: var(--sp-10);
+      padding-top: var(--sp-4);
+      border-top: 1px solid var(--color-border);
+    }
+
+    .merci-support-final p {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      line-height: 1.6;
+    }
+
+    .merci-support-final a {
+      color: var(--color-text-muted);
+      text-decoration: underline;
+      text-decoration-color: var(--color-border);
+      text-underline-offset: 2px;
+      transition: color var(--duration) var(--ease);
+    }
+
+    .merci-support-final a:hover {
+      color: var(--color-white);
+    }
+
+    .merci-footer {
+      border-top: 1px solid var(--color-border);
+      padding: var(--sp-8) 0;
+      text-align: center;
+    }
+
+    .merci-disclaimer {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      opacity: 0.6;
+      line-height: 1.65;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .merci-nav-logo {
+      height: 40px;
+      width: auto;
+    }
+
+    .merci-licence {
+      background: var(--color-surface);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6) var(--sp-8);
+      margin-bottom: var(--sp-8);
+      text-align: center;
+    }
+
+    .merci-licence h3 {
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--color-white);
+      margin-bottom: var(--sp-2);
+    }
+
+    .merci-licence-hint {
+      font-size: 0.8125rem;
+      color: var(--color-text-dim);
+      margin-bottom: var(--sp-4);
+      line-height: 1.5;
+    }
+
+    .merci-licence-key {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: var(--sp-3) var(--sp-4);
+      margin-bottom: var(--sp-3);
+    }
+
+    .merci-licence-key code {
+      flex: 1;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--color-text);
+      word-break: break-all;
+      text-align: left;
+      user-select: all;
+    }
+
+    .merci-licence-copy {
+      flex-shrink: 0;
+      background: none;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: 6px 12px;
+      font-size: 0.75rem;
+      font-family: inherit;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: border-color var(--duration) var(--ease), color var(--duration) var(--ease);
+    }
+
+    .merci-licence-copy:hover {
+      border-color: var(--color-accent);
+      color: var(--color-white);
+    }
+
+    .merci-licence-warning {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      margin: 0;
+      line-height: 1.5;
+    }
+
+    @media (min-width: 768px) {
+      .merci-main {
+        padding: calc(64px + var(--sp-24)) 0 var(--sp-24);
+      }
+    }
+  </style>
+</head>
+<body class="merci-page">
+
+  <!-- ========== HEADER ========== -->
+  <nav class="site-nav" aria-label="Navigation">
+    <div class="container nav-inner">
+      <a href="./" aria-label="CrypTax Offline — Accueil">
+        <img src="assets/logos/Cryptax%20Logo%20Bleu.svg" alt="CrypTax Offline" class="merci-nav-logo" width="200" height="40">
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========== MAIN ========== -->
+  <main class="merci-main">
+    <div class="container merci-content">
+
+      <img src="assets/logos/Cryptax%20Icon%20Bleu.svg" alt="" class="merci-icon" aria-hidden="true" width="56" height="56">
+
+      <h1 class="merci-title">Merci pour votre achat.</h1>
+
+      <p class="merci-stripe">Votre paiement a été traité avec succès par Stripe.</p>
+
+      <p class="merci-privacy">Aucun compte. Aucun serveur. Aucune donnée transmise.</p>
+
+      <!-- Error message (hidden by default, shown if session_id missing) -->
+      <div id="merci-error" class="merci-error" style="display: none;">
+        <p>Session de paiement introuvable. Si vous avez déjà effectué le paiement, contactez le support avec votre reçu Stripe : <a href="mailto:CryptaxOffline@Proton.me">CryptaxOffline@Proton.me</a></p>
+      </div>
+
+      <!-- OS Choice -->
+      <div id="os-choice" class="os-choice">
+        <h2 class="os-choice-title">Choisissez votre version</h2>
+        <div class="os-choice-grid">
+          <button id="download-windows" class="os-card" type="button" disabled>
+            <img src="assets/logos/OS/Microsoft%20Windows.svg" alt="Windows" class="os-card-logo" width="48" height="48">
+            <span class="os-card-label">Télécharger pour Windows</span>
+          </button>
+          <button id="download-mac" class="os-card" type="button" disabled>
+            <img src="assets/logos/OS/Apple%20MAC.svg" alt="macOS" class="os-card-logo" width="48" height="48">
+            <span class="os-card-label">Télécharger pour macOS</span>
+          </button>
+        </div>
+        <p class="os-choice-note">Le téléchargement est sécurisé. Vos données ne sont jamais envoyées à nos serveurs.</p>
+      </div>
+
+      <!-- Licence Key -->
+      <div id="merci-licence" class="merci-licence" style="display: none;">
+        <h3>Votre clé de licence</h3>
+        <p class="merci-licence-hint">Conservez cette clé précieusement. Elle est nécessaire pour activer le logiciel et accéder aux futures mises à jour.</p>
+        <div class="merci-licence-key">
+          <code id="licence-key-value">Chargement…</code>
+          <button type="button" class="merci-licence-copy" id="licence-copy-btn">Copier</button>
+        </div>
+        <p class="merci-licence-warning">Cette clé ne sera plus affichée après fermeture de cette page.</p>
+      </div>
+
+      <a href="./" class="merci-home-link">&larr; Retour à l'accueil</a>
+
+      <!-- Receipt reminder -->
+      <p class="merci-receipt">Stripe vous enverra également un reçu par e-mail. Conservez-le pour vos archives.</p>
+
+      <!-- SmartScreen warning -->
+      <div class="merci-card">
+        <h3>Avertissement Windows (SmartScreen)</h3>
+        <p class="merci-card-text">Lors de la première exécution, Windows peut afficher un avertissement («&nbsp;éditeur inconnu&nbsp;»). C'est un comportement normal pour les logiciels récents publiés par un éditeur indépendant, le temps que la réputation se construise auprès de Microsoft.</p>
+        <p class="merci-card-text">CrypTax Offline est un logiciel de bureau autonome : il ne crée aucun compte, ne se connecte à aucun serveur et ne transmet aucune donnée.</p>
+        <p class="merci-card-text merci-card-steps">Pour continuer : cliquez sur «&nbsp;<strong>Informations complémentaires</strong>&nbsp;», puis «&nbsp;<strong>Exécuter quand même</strong>&nbsp;».</p>
+      </div>
+
+      <!-- Gatekeeper warning (macOS) -->
+      <div class="merci-card">
+        <h3>Avertissement macOS (Gatekeeper)</h3>
+        <p class="merci-card-text">Lors de la première ouverture, macOS peut afficher un message indiquant que l'application provient d'un «&nbsp;développeur non identifié&nbsp;». C'est un comportement normal de sécurité (Gatekeeper) pour les applications téléchargées sur internet.</p>
+        <p class="merci-card-text">CrypTax Offline est un logiciel de bureau autonome : il ne crée aucun compte, ne se connecte à aucun serveur et ne transmet aucune donnée.</p>
+        <p class="merci-card-text merci-card-steps">Pour continuer : ouvrez le fichier, puis allez dans <strong>Réglages Système</strong> → <strong>Confidentialité et sécurité</strong>, et cliquez sur «&nbsp;<strong>Ouvrir quand même</strong>&nbsp;» (ou «&nbsp;<strong>Autoriser</strong>&nbsp;») pour CrypTax Offline.</p>
+        <p class="merci-card-text merci-card-steps"><em>Option alternative (si nécessaire) :</em> vous pouvez également faire un clic droit sur l'app → <strong>Ouvrir</strong>, puis confirmer.</p>
+      </div>
+
+      <!-- Checksums (optional, for advanced users) -->
+      <div class="merci-card merci-card-optional" id="checksums">
+        <h3>Pour les utilisateurs avancés (optionnel)</h3>
+        <p class="merci-card-text">Optionnel. Cette section s'adresse aux utilisateurs souhaitant un niveau de vérification supplémentaire. La grande majorité des utilisateurs peut ignorer cette étape en toute sécurité.</p>
+        <div class="merci-checksum-box">
+          <code>SHA-256 (Windows x64 Setup) : REPLACE_WITH_SHA256</code>
+        </div>
+        <p class="merci-card-hint">Cette valeur est mise à jour par l'éditeur à chaque nouvelle version.</p>
+      </div>
+
+      <!-- Troubleshooting -->
+      <div class="merci-card">
+        <h3>Le téléchargement ne démarre pas ?</h3>
+        <ol>
+          <li>Vérifiez que votre navigateur n'a pas bloqué le téléchargement (barre de notification ou dossier Téléchargements).</li>
+          <li>Désactivez temporairement les extensions susceptibles de bloquer les téléchargements (bloqueurs de publicité, etc.).</li>
+          <li>Essayez avec un autre navigateur (Chrome, Firefox, Edge).</li>
+        </ol>
+      </div>
+
+      <!-- Support -->
+      <div class="merci-support">
+        <p>Un problème ? Contactez-nous à <a href="mailto:CryptaxOffline@Proton.me">CryptaxOffline@Proton.me</a></p>
+      </div>
+
+      <!-- Final support line -->
+      <div class="merci-support-final">
+        <p>Besoin d'aide ? Contact : <a href="mailto:CryptaxOffline@Proton.me">CryptaxOffline@Proton.me</a> (merci de joindre votre reçu Stripe).</p>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="merci-footer">
+    <div class="container">
+      <p class="merci-disclaimer">
+        CrypTax Offline prépare les données nécessaires à la déclaration (2086, 3916-bis) à partir des informations importées par l'utilisateur.
+        La déclaration finale est effectuée par l'utilisateur sur impots.gouv.fr. En cas de doute, consultez un professionnel.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========== Download Logic ========== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var DOWNLOAD_ENDPOINT = 'https://cryptaxoffline-download.admin-cryptaxoffline.workers.dev/download';
+
+      var windowsBtn = document.getElementById('download-windows');
+      var macBtn = document.getElementById('download-mac');
+      var errorBox = document.getElementById('merci-error');
+
+      // Parse session_id from URL
+      function getSessionId() {
+        try {
+          var params = new URLSearchParams(window.location.search);
+          return params.get('session_id') || null;
+        } catch (e) {
+          return null;
+        }
+      }
+
+      function handleDownload(btn, os, sessionId) {
+        btn.addEventListener('click', function () {
+          if (btn.disabled) return;
+
+          var downloadUrl = DOWNLOAD_ENDPOINT
+            + '?os=' + encodeURIComponent(os)
+            + '&session_id=' + encodeURIComponent(sessionId);
+
+          window.location.href = downloadUrl;
+        });
+      }
+
+      var SESSION_INFO_ENDPOINT = 'https://cryptaxoffline-download.admin-cryptaxoffline.workers.dev/session-info';
+
+      var licenceBox = document.getElementById('merci-licence');
+      var licenceKeyEl = document.getElementById('licence-key-value');
+      var copyBtn = document.getElementById('licence-copy-btn');
+
+      var sessionId = getSessionId();
+
+      if (!sessionId) {
+        // No session_id: show error, keep buttons disabled
+        if (errorBox) {
+          errorBox.style.display = 'block';
+        }
+      } else {
+        // Valid session_id: enable buttons
+        if (windowsBtn) {
+          windowsBtn.disabled = false;
+          handleDownload(windowsBtn, 'windows', sessionId);
+        }
+        if (macBtn) {
+          macBtn.disabled = false;
+          handleDownload(macBtn, 'mac', sessionId);
+        }
+
+        // Fetch licence key (payment_intent)
+        fetch(SESSION_INFO_ENDPOINT + '?session_id=' + encodeURIComponent(sessionId))
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (data.ok && data.payment_intent) {
+              licenceKeyEl.textContent = data.payment_intent;
+              licenceBox.style.display = 'block';
+            }
+          })
+          .catch(function () {
+            // Silently fail — licence box stays hidden
+          });
+
+        // Copy button
+        copyBtn.addEventListener('click', function () {
+          var key = licenceKeyEl.textContent;
+          if (!key || key === 'Chargement…') return;
+          navigator.clipboard.writeText(key).then(function () {
+            copyBtn.textContent = 'Copié !';
+            setTimeout(function () { copyBtn.textContent = 'Copier'; }, 2000);
+          });
+        });
+      }
+    })();
+  </script>
+
+  <script src="falling-coins.js"></script>
+</body>
+</html>

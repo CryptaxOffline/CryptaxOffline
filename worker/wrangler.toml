@@ -1,0 +1,21 @@
+name = "cryptaxoffline-download"
+main = "index.js"
+compatibility_date = "2026-01-29"
+
+[[r2_buckets]]
+binding = "DOWNLOADS_BUCKET"
+bucket_name = "cryptaxoffline-downloads"
+
+[[kv_namespaces]]
+binding = "TOKENS"
+id = "589bcd1cdd474764aa7f173e912b8bc7"
+
+[durable_objects]
+bindings = [
+  { name = "REDEMPTION_COUNTER", class_name = "RedemptionCounter" }
+]
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["RedemptionCounter"]
+

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mise à jour — CrypTax Offline</title>
+  <meta name="robots" content="noindex,nofollow">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/Cryptax%20Icon%20Bleu.svg">
+  <link rel="icon" type="image/png" href="assets/logos/Cryptax%20Icon%20Bleu.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .update-page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    .update-main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: calc(64px + var(--sp-16)) 0 var(--sp-16);
+    }
+
+    .update-content {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .update-icon {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto var(--sp-8);
+      opacity: 0.9;
+    }
+
+    .update-title { margin-bottom: var(--sp-3); }
+
+    .update-subtitle {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      margin-bottom: var(--sp-10);
+      line-height: 1.6;
+    }
+
+    .update-form {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-8);
+      margin-bottom: var(--sp-8);
+      text-align: left;
+    }
+
+    .update-form label {
+      display: block;
+      font-size: 0.8125rem;
+      font-weight: 550;
+      color: var(--color-text);
+      margin-bottom: var(--sp-2);
+    }
+
+    .update-form-hint {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      margin-bottom: var(--sp-4);
+      line-height: 1.5;
+    }
+
+    .update-input {
+      display: block;
+      width: 100%;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: var(--sp-3) var(--sp-4);
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      color: var(--color-text);
+      margin-bottom: var(--sp-6);
+      transition: border-color var(--duration) var(--ease);
+      box-sizing: border-box;
+    }
+
+    .update-input:focus {
+      outline: none;
+      border-color: var(--color-accent);
+    }
+
+    .update-input::placeholder {
+      color: var(--color-text-dim);
+      opacity: 0.5;
+    }
+
+    .update-os-title {
+      font-size: 0.8125rem;
+      font-weight: 550;
+      color: var(--color-text);
+      margin-bottom: var(--sp-4);
+    }
+
+    .update-os-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6);
+    }
+
+    .update-os-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--sp-2);
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: var(--sp-4) var(--sp-3);
+      cursor: pointer;
+      transition: border-color var(--duration) var(--ease), transform var(--duration) var(--ease);
+      font-family: inherit;
+      color: inherit;
+    }
+
+    .update-os-btn:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-1px);
+    }
+
+    .update-os-btn.active {
+      border-color: var(--color-accent);
+      background: rgba(201, 168, 76, 0.08);
+    }
+
+    .update-os-btn img {
+      width: auto;
+      height: 32px;
+      opacity: 0.85;
+    }
+
+    .update-os-btn span {
+      font-size: 0.75rem;
+      font-weight: 550;
+      color: var(--color-text-muted);
+    }
+
+    .update-submit {
+      display: block;
+      width: 100%;
+      padding: var(--sp-3) var(--sp-6);
+      background: var(--color-accent);
+      color: var(--color-bg);
+      border: none;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity var(--duration) var(--ease);
+    }
+
+    .update-submit:hover { opacity: 0.9; }
+
+    .update-submit:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    .update-message {
+      border-radius: var(--radius);
+      padding: var(--sp-4) var(--sp-5);
+      margin-bottom: var(--sp-6);
+      text-align: center;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      display: none;
+    }
+
+    .update-message.error {
+      background: rgba(107, 64, 64, 0.3);
+      border: 1px solid var(--color-red-muted);
+      color: var(--color-text-muted);
+    }
+
+    .update-message.success {
+      background: rgba(64, 107, 64, 0.3);
+      border: 1px solid rgba(100, 180, 100, 0.4);
+      color: var(--color-text-muted);
+    }
+
+    .update-home-link {
+      display: inline-block;
+      font-size: 0.875rem;
+      color: var(--color-text-dim);
+      transition: color var(--duration) var(--ease);
+    }
+
+    .update-home-link:hover { color: var(--color-text-muted); }
+
+    .update-nav-logo { height: 40px; width: auto; }
+
+    .update-version-info {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: var(--sp-4) var(--sp-6);
+      margin-bottom: var(--sp-6);
+      text-align: center;
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      color: var(--color-text-muted);
+    }
+
+    .update-version-info strong {
+      color: var(--color-text);
+      font-weight: 600;
+    }
+
+    .update-version-info p {
+      margin: 0;
+    }
+
+    .update-version-info p + p {
+      margin-top: var(--sp-1);
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+    }
+
+    .update-footer {
+      border-top: 1px solid var(--color-border);
+      padding: var(--sp-8) 0;
+      text-align: center;
+    }
+
+    .update-disclaimer {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      opacity: 0.6;
+      line-height: 1.65;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 768px) {
+      .update-main {
+        padding: calc(64px + var(--sp-24)) 0 var(--sp-24);
+      }
+    }
+  </style>
+</head>
+<body class="update-page">
+
+  <!-- ========== HEADER ========== -->
+  <nav class="site-nav" aria-label="Navigation">
+    <div class="container nav-inner">
+      <a href="./" aria-label="CrypTax Offline — Accueil">
+        <img src="assets/logos/Cryptax%20Logo%20Bleu.svg" alt="CrypTax Offline" class="update-nav-logo" width="200" height="40">
+      </a>
+    </div>
+  </nav>
+
+  <!-- ========== MAIN ========== -->
+  <main class="update-main">
+    <div class="container update-content">
+
+      <img src="assets/logos/Cryptax%20Icon%20Bleu.svg" alt="" class="update-icon" aria-hidden="true" width="56" height="56">
+
+      <h1 class="update-title">Mise à jour</h1>
+      <p class="update-subtitle">Entrez votre clé de licence pour télécharger la dernière version de CrypTax Offline.</p>
+
+      <!-- Version info -->
+      <div class="update-version-info">
+        <p><strong>Version actuelle :</strong> v1.0.1</p>
+        <p>Si vous utilisez la version v1.0.0, il est recommandé de mettre à jour.</p>
+      </div>
+
+      <!-- Messages -->
+      <div id="update-message" class="update-message"></div>
+
+      <!-- Form -->
+      <div class="update-form">
+        <label for="payment-id">Clé de licence</label>
+        <p class="update-form-hint">Votre clé se trouve dans l'onglet Paramètres du logiciel, ou sur votre page de confirmation d'achat.</p>
+        <input type="text" id="payment-id" class="update-input" placeholder="Entrez votre clé de licence" autocomplete="off" spellcheck="false">
+
+        <p class="update-os-title">Choisissez votre version</p>
+        <div class="update-os-grid">
+          <button type="button" class="update-os-btn active" data-os="windows">
+            <img src="assets/logos/OS/Microsoft%20Windows.svg" alt="Windows" width="32" height="32">
+            <span>Windows</span>
+          </button>
+          <button type="button" class="update-os-btn" data-os="mac">
+            <img src="assets/logos/OS/Apple%20MAC.svg" alt="macOS" width="32" height="32">
+            <span>macOS</span>
+          </button>
+        </div>
+
+        <button type="button" id="update-submit" class="update-submit">Télécharger la mise à jour</button>
+      </div>
+
+      <a href="./" class="update-home-link">&larr; Retour à l'accueil</a>
+
+    </div>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="update-footer">
+    <div class="container">
+      <p class="update-disclaimer">
+        CrypTax Offline prépare les données nécessaires à la déclaration (2086, 3916-bis) à partir des informations importées par l'utilisateur.
+        La déclaration finale est effectuée par l'utilisateur sur impots.gouv.fr. En cas de doute, consultez un professionnel.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========== Update Logic ========== -->
+  <script>
+    (function () {
+      'use strict';
+
+      var WORKER_BASE = 'https://cryptaxoffline-download.admin-cryptaxoffline.workers.dev';
+      var VERIFY_ENDPOINT = WORKER_BASE + '/verify-update';
+      var UPDATE_ENDPOINT = WORKER_BASE + '/update';
+
+      var input = document.getElementById('payment-id');
+      var submitBtn = document.getElementById('update-submit');
+      var messageBox = document.getElementById('update-message');
+      var osBtns = document.querySelectorAll('.update-os-btn');
+      var selectedOs = 'windows';
+
+      // OS selection
+      osBtns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          osBtns.forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          selectedOs = btn.getAttribute('data-os');
+        });
+      });
+
+      function showMessage(text, type) {
+        messageBox.textContent = text;
+        messageBox.className = 'update-message ' + type;
+        messageBox.style.display = 'block';
+      }
+
+      function hideMessage() {
+        messageBox.style.display = 'none';
+      }
+
+      submitBtn.addEventListener('click', function () {
+        hideMessage();
+
+        var paymentId = input.value.trim();
+
+        if (!paymentId) {
+          showMessage('Veuillez entrer votre clé de licence.', 'error');
+          return;
+        }
+
+        if (!paymentId.startsWith('pi_')) {
+          showMessage('La clé de licence doit commencer par "pi_". Vérifiez dans l\'onglet Paramètres de votre logiciel.', 'error');
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Vérification en cours…';
+
+        // 1) Vérifier la clé sans consommer de slot
+        fetch(VERIFY_ENDPOINT + '?payment_id=' + encodeURIComponent(paymentId))
+          .then(function (res) { return res.json(); })
+          .then(function (data) {
+            if (data.ok) {
+              // 2) Clé valide → lancer le téléchargement (GET consomme 1 slot)
+              var downloadUrl = UPDATE_ENDPOINT
+                + '?payment_id=' + encodeURIComponent(paymentId)
+                + '&os=' + encodeURIComponent(selectedOs);
+              window.location.href = downloadUrl;
+              showMessage('Téléchargement lancé ! Si rien ne se passe, vérifiez votre dossier Téléchargements.', 'success');
+            } else if (data.reason === 'invalid_key' || data.reason === 'not_paid') {
+              showMessage('Clé de licence invalide ou paiement non trouvé. Vérifiez votre clé et réessayez.', 'error');
+            } else {
+              showMessage('Une erreur est survenue. Veuillez réessayer ou contacter le support.', 'error');
+            }
+          })
+          .catch(function () {
+            showMessage('Impossible de contacter le serveur. Vérifiez votre connexion internet.', 'error');
+          })
+          .finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Télécharger la mise à jour';
+          });
+      });
+
+      // Permettre la validation avec Entrée
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter') {
+          submitBtn.click();
+        }
+      });
+    })();
+  </script>
+
+  <script src="falling-coins.js"></script>
+</body>
+</html>
