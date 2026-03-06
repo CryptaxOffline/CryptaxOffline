@@ -15,7 +15,7 @@
   ];
 
   var CONFIG = {
-    spawnInterval: 2800,
+    spawnInterval: 1800,
     minDuration: 16,
     maxDuration: 28,
     minSize: 36,
