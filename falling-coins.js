@@ -86,13 +86,7 @@
     i.src = src;
   });
 
-  // Stagger initial coins across the full animation duration for a continuous feel
-  var initialCount = 10;
-  for (var i = 0; i < initialCount; i++) {
-    (function (delay) {
-      setTimeout(spawnCoin, delay);
-    })(i * (CONFIG.spawnInterval / 2));
-  }
-
+  // Start with one coin immediately, then regular interval
+  spawnCoin();
   setInterval(spawnCoin, CONFIG.spawnInterval);
 })();
