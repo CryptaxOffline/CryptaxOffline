@@ -15,14 +15,14 @@
   ];
 
   var CONFIG = {
-    spawnInterval: 2200,
-    minDuration: 12,
-    maxDuration: 22,
+    spawnInterval: 3000,
+    minDuration: 14,
+    maxDuration: 24,
     minSize: 30,
     maxSize: 54,
     minOpacity: 0.30,
     maxOpacity: 0.40,
-    maxCoins: 20
+    maxCoins: 8
   };
 
   // Inject styles
