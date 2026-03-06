@@ -86,9 +86,12 @@
     i.src = src;
   });
 
-  // Spawn initial batch instantly across the full screen
-  for (var i = 0; i < CONFIG.maxCoins; i++) {
-    spawnCoin();
+  // Stagger initial coins across the full animation duration for a continuous feel
+  var initialCount = 10;
+  for (var i = 0; i < initialCount; i++) {
+    (function (delay) {
+      setTimeout(spawnCoin, delay);
+    })(i * (CONFIG.spawnInterval / 2));
   }
 
   setInterval(spawnCoin, CONFIG.spawnInterval);
