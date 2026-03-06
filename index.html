@@ -29,8 +29,30 @@
         <a href="/update.html" role="listitem">Mise à jour</a>
       </div>
       <a href="#tarif" class="nav-cta">Acheter — 19,99 €</a>
+      <button class="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
     </div>
   </nav>
+
+  <!-- Mobile menu backdrop -->
+  <div class="mobile-menu-backdrop" id="mobile-menu-backdrop"></div>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-inner">
+      <button class="mobile-menu-close" aria-label="Fermer le menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <a href="#pourquoi" class="mobile-menu-link">Pourquoi offline</a>
+      <a href="#fonctionnement" class="mobile-menu-link">Fonctionnement</a>
+      <a href="#fonctionnalites" class="mobile-menu-link">Fonctionnalités</a>
+      <a href="#tarif" class="mobile-menu-link">Tarif</a>
+      <a href="#faq" class="mobile-menu-link">FAQ</a>
+      <a href="/update.html" class="mobile-menu-link">Mise à jour</a>
+      <a href="#tarif" class="mobile-menu-cta">Acheter — 19,99 €</a>
+    </div>
+  </div>
 
   <main>
 
@@ -764,6 +786,38 @@
             btn.setAttribute('aria-expanded', 'true');
           }
         });
+      });
+    })();
+  </script>
+
+  <!-- ========== Mobile Menu Script ========== -->
+  <script>
+    (function () {
+      var btn = document.querySelector('.nav-hamburger');
+      var menu = document.getElementById('mobile-menu');
+      var backdrop = document.getElementById('mobile-menu-backdrop');
+      var closeBtn = document.querySelector('.mobile-menu-close');
+      var links = document.querySelectorAll('.mobile-menu-link, .mobile-menu-cta');
+
+      function openMenu() {
+        menu.classList.add('open');
+        backdrop.classList.add('open');
+        menu.setAttribute('aria-hidden', 'false');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+
+      function closeMenu() {
+        menu.classList.remove('open');
+        backdrop.classList.remove('open');
+        menu.setAttribute('aria-hidden', 'true');
+        btn.setAttribute('aria-expanded', 'false');
+      }
+
+      btn.addEventListener('click', openMenu);
+      closeBtn.addEventListener('click', closeMenu);
+      backdrop.addEventListener('click', closeMenu);
+      links.forEach(function (link) {
+        link.addEventListener('click', closeMenu);
       });
     })();
   </script>
