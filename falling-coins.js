@@ -15,13 +15,13 @@
   ];
 
   var CONFIG = {
-    spawnInterval: 2000,
-    minDuration: 14,
-    maxDuration: 24,
-    minSize: 30,
-    maxSize: 54,
-    minOpacity: 0.30,
-    maxOpacity: 0.40,
+    spawnInterval: 2800,
+    minDuration: 16,
+    maxDuration: 28,
+    minSize: 36,
+    maxSize: 62,
+    minOpacity: 0.35,
+    maxOpacity: 0.50,
     maxCoins: 14
   };
 
