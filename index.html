@@ -17,6 +17,11 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="site-nav" aria-label="Navigation principale">
     <div class="container nav-inner">
+      <button class="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
       <a href="#" aria-label="CrypTax Offline — Accueil">
         <img src="assets/logos/Cryptax%20Logo%20Bleu.svg" alt="CrypTax Offline" class="nav-logo" width="180" height="36">
       </a>
@@ -29,9 +34,6 @@
         <a href="/update.html" role="listitem">Mise à jour</a>
       </div>
       <a href="#tarif" class="nav-cta">Acheter — 19,99 €</a>
-      <button class="nav-hamburger" aria-label="Ouvrir le menu" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-      </button>
     </div>
   </nav>
 
@@ -41,16 +43,24 @@
   <!-- Mobile menu overlay -->
   <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
     <div class="mobile-menu-inner">
-      <button class="mobile-menu-close" aria-label="Fermer le menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-      </button>
-      <a href="#pourquoi" class="mobile-menu-link">Pourquoi offline</a>
-      <a href="#fonctionnement" class="mobile-menu-link">Fonctionnement</a>
-      <a href="#fonctionnalites" class="mobile-menu-link">Fonctionnalités</a>
-      <a href="#tarif" class="mobile-menu-link">Tarif</a>
-      <a href="#faq" class="mobile-menu-link">FAQ</a>
-      <a href="/update.html" class="mobile-menu-link">Mise à jour</a>
-      <a href="#tarif" class="mobile-menu-cta">Acheter — 19,99 €</a>
+      <div class="mobile-menu-header">
+        <img src="assets/logos/Cryptax%20Icon%20Bleu.svg" alt="" width="32" height="32">
+        <span class="mobile-menu-title">CrypTax Offline</span>
+        <button class="mobile-menu-close" aria-label="Fermer le menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div class="mobile-menu-nav">
+        <a href="#pourquoi" class="mobile-menu-link">Pourquoi offline</a>
+        <a href="#fonctionnement" class="mobile-menu-link">Fonctionnement</a>
+        <a href="#fonctionnalites" class="mobile-menu-link">Fonctionnalités</a>
+        <a href="#tarif" class="mobile-menu-link">Tarif</a>
+        <a href="#faq" class="mobile-menu-link">FAQ</a>
+        <a href="/update.html" class="mobile-menu-link">Mise à jour</a>
+      </div>
+      <div class="mobile-menu-footer">
+        <a href="#tarif" class="mobile-menu-cta">Acheter — 19,99 €</a>
+      </div>
     </div>
   </div>
 
