@@ -14,9 +14,9 @@
   --color-text:       #e4e4e7;
   --color-text-muted: #a0a0ab;
   --color-text-dim:   #6b6b76;
-  --color-accent:     #c9a84c;
-  --color-accent-hover:#ddb94f;
-  --color-accent-subtle: rgba(201, 168, 76, 0.08);
+  --color-accent:     #6ad4e8;
+  --color-accent-hover:#8AEEFC;
+  --color-accent-subtle: rgba(138, 238, 252, 0.08);
   --color-white:      #fafafa;
   --color-green:      #34d399;
   --color-red-muted:  #6b4040;
@@ -91,7 +91,7 @@ ul, ol { list-style: none; }
 }
 
 ::selection {
-  background: rgba(201, 168, 76, 0.25);
+  background: rgba(138, 238, 252, 0.25);
   color: var(--color-white);
 }
 
@@ -218,7 +218,7 @@ h3 { font-size: clamp(1.125rem, 2vw, 1.375rem); }
 .btn-primary:hover {
   background: var(--color-accent-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 24px rgba(201, 168, 76, 0.2);
+  box-shadow: 0 4px 24px rgba(138, 238, 252, 0.2);
 }
 
 .btn-secondary {
@@ -485,7 +485,7 @@ section {
 }
 
 .comparison-offline {
-  border-color: rgba(201, 168, 76, 0.25);
+  border-color: rgba(138, 238, 252, 0.25);
 }
 
 .comparison-list {
