@@ -226,6 +226,27 @@
       color: var(--color-text-dim);
     }
 
+    .update-video-block {
+      margin-bottom: var(--sp-8);
+      text-align: center;
+    }
+
+    .update-video-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--sp-3);
+    }
+
+    .update-video {
+      width: 100%;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      display: block;
+    }
+
     .update-footer {
       border-top: 1px solid var(--color-border);
       padding: var(--sp-8) 0;
@@ -270,8 +291,16 @@
 
       <!-- Version info -->
       <div class="update-version-info">
-        <p><strong>Version actuelle :</strong> v1.0.1</p>
-        <p>Si vous utilisez la version v1.0.0, il est recommandé de mettre à jour.</p>
+        <p><strong>Version actuelle :</strong> v1.0.2</p>
+        <p>Si vous utilisez une version antérieure à v1.0.2, il est recommandé de mettre à jour.</p>
+      </div>
+
+      <!-- Vidéo nouveautés -->
+      <div class="update-video-block">
+        <p class="update-video-label">Nouveautés — v1.0.2</p>
+        <video class="update-video" autoplay muted loop playsinline>
+          <source src="FondTwitter_4K.mp4" type="video/mp4">
+        </video>
       </div>
 
       <!-- Messages -->
@@ -400,6 +429,7 @@
     })();
   </script>
 
+  <script src="background.js"></script>
   <script src="falling-coins.js"></script>
 </body>
 </html>
