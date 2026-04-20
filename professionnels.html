@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CrypTax Offline — Solution pour les professionnels du droit et du chiffre</title>
+  <meta name="description" content="Expert-comptable ou avocat fiscaliste ? CrypTax Offline est le seul outil fiscal crypto conçu pour les professionnels qui ne peuvent pas compromettre la confidentialité des données clients. 100 % offline. RGPD natif.">
+  <link rel="icon" type="image/svg+xml" href="assets/logos/Cryptax%20Icon%20Bleu.svg">
+  <link rel="icon" type="image/png" href="assets/logos/Cryptax%20Icon%20Bleu.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260418">
+  <style>
+    /* ── Page layout ── */
+    .pro-page { min-height: 100vh; display: flex; flex-direction: column; }
+
+    /* ── Hero ── */
+    .pro-hero {
+      padding: calc(64px + var(--sp-20)) 0 var(--sp-20);
+      text-align: center;
+    }
+    .pro-hero-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: var(--sp-5);
+      border: 1px solid rgba(106,212,232,0.2);
+      padding: var(--sp-2) var(--sp-4);
+      border-radius: 100px;
+      background: rgba(106,212,232,0.06);
+    }
+    .pro-hero h1 { margin-bottom: var(--sp-6); }
+    .pro-hero-sub {
+      font-size: clamp(1rem, 2vw, 1.125rem);
+      color: var(--color-text-muted);
+      max-width: 640px;
+      margin: 0 auto var(--sp-8);
+      line-height: 1.65;
+    }
+    .pro-hero-tagline {
+      font-size: 1.125rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      letter-spacing: -0.01em;
+      margin-bottom: var(--sp-10);
+    }
+    .pro-hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+
+    /* ── Argument cards ── */
+    .pro-args-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-6);
+    }
+    @media (min-width: 768px) {
+      .pro-args-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .pro-arg-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-8);
+    }
+    .pro-arg-icon {
+      font-size: 1.5rem;
+      margin-bottom: var(--sp-4);
+      display: block;
+    }
+    .pro-arg-card h3 { margin-bottom: var(--sp-3); }
+    .pro-arg-card p {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* ── Two-col feature ── */
+    .pro-feature {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-10);
+      align-items: center;
+    }
+    @media (min-width: 768px) {
+      .pro-feature { grid-template-columns: 1fr 1fr; }
+      .pro-feature--reverse .pro-feature-text { order: 2; }
+      .pro-feature--reverse .pro-feature-visual { order: 1; }
+    }
+    .pro-feature-text h2 { margin-bottom: var(--sp-5); }
+    .pro-feature-text p {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--sp-4);
+    }
+    .pro-feature-text p:last-child { margin-bottom: 0; }
+    .pro-feature-visual {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-8);
+    }
+    .pro-feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+    .pro-feature-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      line-height: 1.55;
+    }
+    .pro-feature-list li .check { color: var(--color-accent); flex-shrink: 0; margin-top: 2px; }
+
+    /* ── DeFi zones grises ── */
+    .pro-defi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--sp-3);
+      margin-top: var(--sp-6);
+    }
+    .pro-defi-tag {
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: var(--sp-3) var(--sp-4);
+      font-size: 0.8125rem;
+      color: var(--color-text-muted);
+      text-align: center;
+    }
+
+    /* ── Pricing ── */
+    .pro-pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-6);
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .pro-pricing-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    .pro-pricing-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-8);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .pro-pricing-card--featured {
+      border-color: rgba(106,212,232,0.35);
+    }
+    .pro-pricing-card--featured::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: var(--radius-xl);
+      padding: 1px;
+      background: linear-gradient(135deg, var(--color-accent), transparent 60%);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    .pro-pricing-badge {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-bg);
+      background: var(--color-accent);
+      padding: var(--sp-1) var(--sp-3);
+      border-radius: 100px;
+      margin-bottom: var(--sp-4);
+      align-self: flex-start;
+    }
+    .pro-pricing-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--color-white);
+      margin-bottom: var(--sp-2);
+    }
+    .pro-pricing-amount {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--color-white);
+      letter-spacing: -0.03em;
+      line-height: 1;
+      margin-bottom: var(--sp-1);
+    }
+    .pro-pricing-amount span {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--color-text-muted);
+    }
+    .pro-pricing-period {
+      font-size: 0.8125rem;
+      color: var(--color-text-dim);
+      margin-bottom: var(--sp-6);
+    }
+    .pro-pricing-features {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      flex: 1;
+      margin-bottom: var(--sp-8);
+    }
+    .pro-pricing-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      font-size: 0.875rem;
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+    .pro-pricing-features .check { color: var(--color-accent); flex-shrink: 0; font-size: 0.8125rem; margin-top: 2px; }
+    .pro-pricing-cta {
+      display: block;
+      width: 100%;
+      padding: var(--sp-3) var(--sp-6);
+      background: transparent;
+      color: var(--color-accent);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 0.875rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      transition: background var(--duration) var(--ease), color var(--duration) var(--ease);
+      text-decoration: none;
+    }
+    .pro-pricing-cta:hover {
+      background: var(--color-accent);
+      color: var(--color-bg);
+    }
+    .pro-pricing-cta--primary {
+      background: var(--color-accent);
+      color: var(--color-bg);
+    }
+    .pro-pricing-cta--primary:hover {
+      background: var(--color-accent-hover);
+    }
+    .pro-pricing-custom {
+      text-align: center;
+      margin-top: var(--sp-8);
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+    }
+    .pro-pricing-custom a {
+      color: var(--color-accent);
+      text-decoration: underline;
+      text-decoration-color: rgba(106,212,232,0.3);
+      text-underline-offset: 3px;
+    }
+
+    /* ── Services ── */
+    .pro-services-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-6);
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    @media (min-width: 768px) {
+      .pro-services-grid { grid-template-columns: 1fr 1fr; }
+    }
+    .pro-service-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-8);
+    }
+    .pro-service-card h3 { margin-bottom: var(--sp-3); }
+    .pro-service-card p {
+      font-size: 0.9375rem;
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      margin-bottom: var(--sp-3);
+    }
+    .pro-service-tag {
+      display: inline-block;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--color-text-dim);
+      background: var(--color-surface-2);
+      border: 1px solid var(--color-border);
+      padding: var(--sp-1) var(--sp-3);
+      border-radius: 100px;
+    }
+
+    /* ── Contact form ── */
+    .pro-contact-card {
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--sp-10) var(--sp-10);
+    }
+    .pro-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+    .pro-form-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--sp-4);
+    }
+    @media (min-width: 600px) {
+      .pro-form-row { grid-template-columns: 1fr 1fr; }
+    }
+    .pro-form-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-2);
+    }
+    .pro-form-group label {
+      font-size: 0.8125rem;
+      font-weight: 550;
+      color: var(--color-text);
+    }
+    .pro-form-group input,
+    .pro-form-group textarea {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      padding: var(--sp-3) var(--sp-4);
+      font-family: inherit;
+      font-size: 0.875rem;
+      color: var(--color-text);
+      transition: border-color var(--duration) var(--ease);
+      resize: vertical;
+    }
+    .pro-form-group input:focus,
+    .pro-form-group textarea:focus {
+      outline: none;
+      border-color: var(--color-accent);
+    }
+    .pro-form-group input::placeholder,
+    .pro-form-group textarea::placeholder {
+      color: var(--color-text-dim);
+      opacity: 0.6;
+    }
+    .pro-form-submit {
+      width: 100%;
+      padding: var(--sp-4) var(--sp-8);
+      background: var(--color-accent);
+      color: var(--color-bg);
+      border: none;
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--duration) var(--ease);
+      margin-top: var(--sp-2);
+    }
+    .pro-form-submit:hover { background: var(--color-accent-hover); }
+    .pro-form-note {
+      font-size: 0.75rem;
+      color: var(--color-text-dim);
+      text-align: center;
+      line-height: 1.5;
+    }
+    #pro-form-success {
+      display: none;
+      text-align: center;
+      padding: var(--sp-8);
+      color: var(--color-green);
+      font-size: 1rem;
+      font-weight: 550;
+    }
+
+    @media (min-width: 768px) {
+      .pro-hero { padding: calc(64px + var(--sp-24)) 0 var(--sp-24); }
+    }
+  </style>
+</head>
+<body class="pro-page">
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="site-nav" aria-label="Navigation principale">
+    <div class="container nav-inner">
+      <a href="/" aria-label="CrypTax Offline — Accueil">
+        <img src="assets/logos/Cryptax%20Logo%20Bleu.svg" alt="CrypTax Offline" class="nav-logo" width="180" height="36">
+      </a>
+      <div class="nav-links" role="list">
+        <a href="/#pourquoi" role="listitem">Pourquoi offline</a>
+        <a href="/#fonctionnalites" role="listitem">Fonctionnalités</a>
+        <a href="/#tarif" role="listitem">Tarif</a>
+        <a href="/professionnels.html" role="listitem" style="color: var(--color-accent)">Professionnels</a>
+        <a href="/#faq" role="listitem">FAQ</a>
+        <a href="/update.html" role="listitem">Mise à jour</a>
+      </div>
+      <a href="#contact" class="nav-cta">Nous contacter</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="pro-hero">
+      <div class="container">
+        <div data-reveal="fade-up">
+          <span class="pro-hero-label">Pour les professionnels</span>
+          <h1>Le seul outil fiscal crypto qui protège le secret professionnel.</h1>
+          <p class="pro-hero-sub">Vous êtes expert-comptable ou avocat fiscaliste et vos clients détiennent des crypto-actifs&nbsp;? CrypTax Offline est conçu pour les professionnels qui ne peuvent pas se permettre de compromettre la confidentialité des données de leurs clients.</p>
+          <p class="pro-hero-tagline">100&nbsp;% offline. Zéro serveur. Zéro compromis.</p>
+          <div class="hero-ctas">
+            <a href="#contact" class="btn btn-primary">Prendre contact</a>
+            <a href="#offres" class="btn btn-secondary">Voir les offres</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== ARGUMENTS ========== -->
+    <section aria-labelledby="args-title">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <span class="section-label">Pourquoi CrypTax Offline</span>
+          <h2 id="args-title">Conçu pour ceux qui ont des obligations de confidentialité</h2>
+          <p class="section-subtitle">Contrairement aux solutions SaaS du marché, CrypTax Offline fonctionne entièrement en local sur votre poste.</p>
+        </div>
+
+        <div class="pro-args-grid" data-stagger>
+          <div class="pro-arg-card" data-reveal="fade-up">
+            <span class="pro-arg-icon">🔒</span>
+            <h3>Conformité RGPD native</h3>
+            <p>Les données fiscales de vos clients ne transitent jamais par un serveur tiers. Aucun hébergement externe, aucune synchronisation cloud, aucune exposition réseau. La conformité RGPD est structurelle, pas déclarative.</p>
+          </div>
+          <div class="pro-arg-card" data-reveal="fade-up">
+            <span class="pro-arg-icon">⚖️</span>
+            <h3>Secret professionnel préservé</h3>
+            <p>Vos obligations déontologiques ne sont pas négociables. CrypTax Offline garantit que les informations patrimoniales de vos clients restent exclusivement sur votre poste de travail — sous votre contrôle, point final.</p>
+          </div>
+          <div class="pro-arg-card" data-reveal="fade-up">
+            <span class="pro-arg-icon">📋</span>
+            <h3>Multi-dossiers clients</h3>
+            <p>Gérez plusieurs dossiers clients simultanément. Chaque dossier est isolé, traçable et exportable. Les rapports générés sont nommés, datés et conservables pour vos archives ou celles de vos clients.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== MÉTHODOLOGIE ========== -->
+    <section aria-labelledby="methodo-title">
+      <div class="container">
+        <div class="pro-feature">
+          <div class="pro-feature-text" data-reveal="fade-left">
+            <span class="section-label">Méthodologie</span>
+            <h2 id="methodo-title">Une approche juridiquement solide</h2>
+            <p>Les qualifications fiscales intégrées dans CrypTax Offline — article 150&nbsp;VH&nbsp;bis, BNC, revenus de capitaux mobiliers — sont documentées et argumentées juridiquement.</p>
+            <p>Chaque calcul est tracé et justifiable en cas de contrôle fiscal. Le justificatif PDF généré constitue une pièce d'appui exploitable dans vos liasses et vos échanges avec l'administration.</p>
+            <p>CrypTax Offline applique la méthode du prix moyen pondéré d'acquisition (PMPA) telle que définie par le CGI, avec une traçabilité complète de chaque opération.</p>
+          </div>
+          <div class="pro-feature-visual" data-reveal="fade-right">
+            <ul class="pro-feature-list">
+              <li><span class="check">&#10003;</span> Article 150 VH bis — plus-values sur actifs numériques (particuliers)</li>
+              <li><span class="check">&#10003;</span> BNC — revenus professionnels des crypto-actifs</li>
+              <li><span class="check">&#10003;</span> Revenus de capitaux mobiliers — staking, lending</li>
+              <li><span class="check">&#10003;</span> Formulaire 2086 pré-rempli, prêt à intégrer</li>
+              <li><span class="check">&#10003;</span> Formulaire 3916-bis — comptes étrangers détectés automatiquement</li>
+              <li><span class="check">&#10003;</span> Justificatif PDF détaillé et archivable</li>
+              <li><span class="check">&#10003;</span> Méthode PMPA conforme au CGI, calcul tracé opération par opération</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== DEFI ========== -->
+    <section aria-labelledby="defi-title">
+      <div class="container">
+        <div class="pro-feature pro-feature--reverse">
+          <div class="pro-feature-text" data-reveal="fade-right">
+            <span class="section-label">Expertise DeFi</span>
+            <h2 id="defi-title">Une expertise sur les zones grises que vos confrères n'ont pas</h2>
+            <p>La fiscalité des protocoles DeFi reste un angle mort pour la majorité des professionnels du chiffre et du droit. CrypTax Offline intègre une expertise spécifique sur les opérations complexes.</p>
+            <p>Chaque opération est qualifiée fiscalement en l'état du droit français, avec une documentation explicite des zones grises, des positions défendables et des risques associés en cas de contrôle.</p>
+            <p>Vous ne prenez plus position à l'aveugle — vous vous appuyez sur une analyse argumentée et traçable.</p>
+          </div>
+          <div class="pro-feature-visual" data-reveal="fade-left">
+            <h4 style="font-size:0.8125rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;color:var(--color-accent);margin-bottom:var(--sp-4)">Opérations couvertes</h4>
+            <div class="pro-defi-grid">
+              <div class="pro-defi-tag">Lending</div>
+              <div class="pro-defi-tag">Borrowing</div>
+              <div class="pro-defi-tag">Yield farming</div>
+              <div class="pro-defi-tag">Staking</div>
+              <div class="pro-defi-tag">Liquidity pools</div>
+              <div class="pro-defi-tag">Airdrops</div>
+              <div class="pro-defi-tag">NFT</div>
+              <div class="pro-defi-tag">Swap DEX</div>
+              <div class="pro-defi-tag">Wrapped tokens</div>
+              <div class="pro-defi-tag">Bridges</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== OFFRES ========== -->
+    <section id="offres" aria-labelledby="offres-title">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <span class="section-label">Offres</span>
+          <h2 id="offres-title">Nos offres</h2>
+          <p class="section-subtitle">Licences annuelles HT. Renouvelables. Nouvelles versions incluses.</p>
+        </div>
+
+        <div class="pro-pricing-grid" data-stagger>
+
+          <div class="pro-pricing-card" data-reveal="fade-up">
+            <p class="pro-pricing-name">Starter</p>
+            <p class="pro-pricing-amount">490 <span>€ HT</span></p>
+            <p class="pro-pricing-period">par an</p>
+            <ul class="pro-pricing-features">
+              <li><span class="check">&#10003;</span> 1 utilisateur</li>
+              <li><span class="check">&#10003;</span> Jusqu'à 20 dossiers clients</li>
+              <li><span class="check">&#10003;</span> Import CSV + API</li>
+              <li><span class="check">&#10003;</span> Formulaires 2086 et 3916-bis</li>
+              <li><span class="check">&#10003;</span> Justificatifs PDF archivables</li>
+              <li><span class="check">&#10003;</span> Nouvelles versions incluses</li>
+            </ul>
+            <a href="#contact" class="pro-pricing-cta">Nous contacter</a>
+          </div>
+
+          <div class="pro-pricing-card pro-pricing-card--featured" data-reveal="fade-up">
+            <span class="pro-pricing-badge">Le plus choisi</span>
+            <p class="pro-pricing-name">Pro</p>
+            <p class="pro-pricing-amount">990 <span>€ HT</span></p>
+            <p class="pro-pricing-period">par an</p>
+            <ul class="pro-pricing-features">
+              <li><span class="check">&#10003;</span> 1 utilisateur</li>
+              <li><span class="check">&#10003;</span> Jusqu'à 50 dossiers clients</li>
+              <li><span class="check">&#10003;</span> Import CSV + API</li>
+              <li><span class="check">&#10003;</span> Formulaires 2086 et 3916-bis</li>
+              <li><span class="check">&#10003;</span> Justificatifs PDF archivables</li>
+              <li><span class="check">&#10003;</span> Marque blanche avec logo de votre cabinet</li>
+              <li><span class="check">&#10003;</span> Support email</li>
+              <li><span class="check">&#10003;</span> Nouvelles versions incluses</li>
+            </ul>
+            <a href="#contact" class="pro-pricing-cta pro-pricing-cta--primary">Nous contacter</a>
+          </div>
+
+          <div class="pro-pricing-card" data-reveal="fade-up">
+            <p class="pro-pricing-name">Expert</p>
+            <p class="pro-pricing-amount">1 990 <span>€ HT</span></p>
+            <p class="pro-pricing-period">par an</p>
+            <ul class="pro-pricing-features">
+              <li><span class="check">&#10003;</span> 1 utilisateur</li>
+              <li><span class="check">&#10003;</span> Jusqu'à 100 dossiers clients</li>
+              <li><span class="check">&#10003;</span> Import CSV + API</li>
+              <li><span class="check">&#10003;</span> Formulaires 2086 et 3916-bis</li>
+              <li><span class="check">&#10003;</span> Justificatifs PDF archivables</li>
+              <li><span class="check">&#10003;</span> Marque blanche avec logo de votre cabinet</li>
+              <li><span class="check">&#10003;</span> Support téléphonique dédié</li>
+              <li><span class="check">&#10003;</span> Nouvelles versions incluses</li>
+            </ul>
+            <a href="#contact" class="pro-pricing-cta">Nous contacter</a>
+          </div>
+
+        </div>
+
+        <p class="pro-pricing-custom" data-reveal="fade-up">
+          Au-delà de 100 dossiers — <a href="#contact">contactez-nous pour un devis sur mesure</a>.
+        </p>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== SERVICES ========== -->
+    <section aria-labelledby="services-title">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <span class="section-label">Au-delà de l'outil</span>
+          <h2 id="services-title">Formations et accompagnement</h2>
+          <p class="section-subtitle">Des prestations sur mesure pour renforcer l'expertise de votre cabinet.</p>
+        </div>
+
+        <div class="pro-services-grid" data-stagger>
+          <div class="pro-service-card" data-reveal="fade-left">
+            <h3>Formation équipe</h3>
+            <p>Une session de formation sur mesure pour vos collaborateurs sur la fiscalité crypto française. Qualifications fiscales, cas pratiques, zones grises, postures à adopter face à des situations complexes.</p>
+            <span class="pro-service-tag">Sur devis selon la taille de votre équipe</span>
+          </div>
+          <div class="pro-service-card" data-reveal="fade-right">
+            <h3>Webinar client</h3>
+            <p>Animez un webinar de valeur pour vos clients détenteurs de crypto-actifs. Nous intervenons à vos côtés pour répondre aux questions fiscales complexes et renforcer votre positionnement d'expert.</p>
+            <span class="pro-service-tag">Sur devis</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== CONTACT ========== -->
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <span class="section-label">Parlons-en</span>
+          <h2 id="contact-title">Chaque cabinet a ses spécificités.</h2>
+          <p class="section-subtitle">Contactez-nous via le formulaire ci-dessous — nous vous répondons sous 48h pour organiser un échange.</p>
+        </div>
+
+        <div class="pro-contact-card" data-reveal="fade-up">
+          <div id="pro-form-success">
+            ✓ Message envoyé — nous vous répondons sous 48h.
+          </div>
+          <form class="pro-form" id="pro-contact-form" action="https://api.web3forms.com/submit" method="POST">
+            <input type="hidden" name="access_key" value="d3e7c89c-4e75-4f49-844a-185aaf30e896">
+            <input type="hidden" name="subject" value="Demande professionnelle — CrypTax Offline">
+            <input type="hidden" name="redirect" value="false">
+
+            <div class="pro-form-row">
+              <div class="pro-form-group">
+                <label for="pro-nom">Nom</label>
+                <input type="text" id="pro-nom" name="nom" placeholder="Votre nom" required>
+              </div>
+              <div class="pro-form-group">
+                <label for="pro-cabinet">Cabinet</label>
+                <input type="text" id="pro-cabinet" name="cabinet" placeholder="Nom du cabinet" required>
+              </div>
+            </div>
+
+            <div class="pro-form-group">
+              <label for="pro-email">Email professionnel</label>
+              <input type="email" id="pro-email" name="email" placeholder="vous@cabinet.fr" required>
+            </div>
+
+            <div class="pro-form-group">
+              <label for="pro-clients">Nombre approximatif de clients crypto</label>
+              <input type="text" id="pro-clients" name="clients_crypto" placeholder="Ex : 15, entre 20 et 50…">
+            </div>
+
+            <div class="pro-form-group">
+              <label for="pro-message">Message <span style="color:var(--color-text-dim);font-weight:400">(optionnel)</span></label>
+              <textarea id="pro-message" name="message" rows="4" placeholder="Décrivez votre situation, vos besoins…"></textarea>
+            </div>
+
+            <button type="submit" class="pro-form-submit">Envoyer la demande</button>
+            <p class="pro-form-note">Réponse sous 48h · Aucune donnée transmise à des tiers</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <img src="assets/logos/Cryptax%20Logo%20Bleu.svg" alt="CrypTax Offline" class="footer-logo" width="120" height="22">
+      <div class="footer-text">
+        <p>CrypTax Offline est un logiciel de calcul fiscal. Il ne constitue pas un conseil fiscal personnalisé. En cas de doute sur votre situation, consultez un professionnel habilité.</p>
+        <br>
+        <p>Aucune donnée personnelle n'est collectée, stockée ou transmise. Aucun cookie, aucun traceur, aucune télémétrie.</p>
+      </div>
+      <div class="footer-links">
+        <span>Cryptax Offline est édité par un entrepreneur individuel établi en France.</span>
+        <a href="mailto:CryptaxOffline@Proton.me">CryptaxOffline@Proton.me</a>
+        <a href="/">Accueil</a>
+        <a href="/update.html">Mise à jour</a>
+        <a href="/cgv.html">Conditions Générales de Vente</a>
+      </div>
+    </div>
+    <div class="container" style="text-align:center; margin-top: var(--sp-6);">
+      <p class="footer-copy">&copy; 2025 CrypTax Offline. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- Form AJAX submit -->
+  <script>
+    (function () {
+      var form = document.getElementById('pro-contact-form');
+      var success = document.getElementById('pro-form-success');
+      if (!form) return;
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var data = new FormData(form);
+        fetch('https://api.web3forms.com/submit', { method: 'POST', body: data })
+          .then(function (res) { return res.json(); })
+          .then(function (json) {
+            if (json.success) {
+              form.style.display = 'none';
+              success.style.display = 'block';
+            } else {
+              alert('Une erreur est survenue. Veuillez réessayer ou nous contacter par email.');
+            }
+          })
+          .catch(function () {
+            alert('Une erreur est survenue. Veuillez réessayer ou nous contacter par email.');
+          });
+      });
+    })();
+  </script>
+
+  <!-- FAQ Toggle -->
+  <script>
+    (function () {
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(function (item) {
+        const btn = item.querySelector('.faq-question');
+        if (!btn) return;
+        btn.addEventListener('click', function () {
+          const isOpen = item.classList.contains('open');
+          items.forEach(function (i) {
+            i.classList.remove('open');
+            i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          });
+          if (!isOpen) {
+            item.classList.add('open');
+            btn.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script src="background.js"></script>
+  <script src="falling-coins.js"></script>
+  <script src="reveal.js"></script>
+</body>
+</html>
