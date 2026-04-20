@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /merci.html
+Disallow: /update.html
+Disallow: /cgv.html
+
+Sitemap: https://cryptaxoffline.fr/sitemap.xml
