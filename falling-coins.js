@@ -20,8 +20,8 @@
     maxDuration: 28,
     minSize: 36,
     maxSize: 62,
-    minOpacity: 0.50,
-    maxOpacity: 0.70,
+    minOpacity: 0.16,
+    maxOpacity: 0.32,
     maxCoins: 30
   };
 
@@ -45,16 +45,31 @@
   document.body.appendChild(container);
 
   var activeCoins = 0;
+  var coinQueue = [];
 
   function rand(min, max) {
     return Math.random() * (max - min) + min;
   }
 
-  function spawnCoin() {
+  // Shuffled queue: each coin appears once before any repeat
+  function nextCoin() {
+    if (coinQueue.length === 0) {
+      coinQueue = COINS.slice();
+      for (var i = coinQueue.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var tmp = coinQueue[i];
+        coinQueue[i] = coinQueue[j];
+        coinQueue[j] = tmp;
+      }
+    }
+    return coinQueue.pop();
+  }
+
+  function spawnCoin(progressPct) {
     if (activeCoins >= CONFIG.maxCoins) return;
 
     var img = document.createElement('img');
-    var coin = COINS[Math.floor(Math.random() * COINS.length)];
+    var coin = nextCoin();
     var size = rand(CONFIG.minSize, CONFIG.maxSize);
     var duration = rand(CONFIG.minDuration, CONFIG.maxDuration);
     var opacity = rand(CONFIG.minOpacity, CONFIG.maxOpacity);
@@ -71,6 +86,10 @@
     img.style.setProperty('--coin-opacity', opacity);
     img.style.setProperty('--coin-rotation', rotation);
 
+    if (progressPct) {
+      img.style.animationDelay = (-progressPct * duration) + 's';
+    }
+
     container.appendChild(img);
     activeCoins++;
 
@@ -86,7 +105,10 @@
     i.src = src;
   });
 
-  // Start with one coin immediately, then regular interval
-  spawnCoin();
+  // Pre-populate the screen with coins at different points of their fall
+  // (negative animation-delay → coin appears already mid-fall)
+  for (var i = 0; i < 15; i++) {
+    spawnCoin(rand(0.08, 0.85));
+  }
   setInterval(spawnCoin, CONFIG.spawnInterval);
 })();

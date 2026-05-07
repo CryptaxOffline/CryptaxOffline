@@ -74,16 +74,27 @@ export class RedemptionCounter {
 
 // ===== Configuration mise à jour =====
 // Modifier ces valeurs à chaque nouvelle version :
-const UPDATE_VERSION = "1.0.1";
-const UPDATE_R2_WINDOWS = "CrypTax Offline_1.0.1_x64-setup.exe";
-const UPDATE_R2_MAC = "CrypTax Offline_1.0.1_x64.dmg";
-const UPDATE_DOWNLOAD_WINDOWS = "CrypTax_Offline_1.0.1_x64-setup.exe";
-const UPDATE_DOWNLOAD_MAC = "CrypTax_Offline_1.0.1_x64.dmg";
+const UPDATE_VERSION = "1.0.2";
+const UPDATE_R2_WINDOWS = "CrypTax Offline_1.0.2_x64-setup.exe";
+const UPDATE_R2_MAC = "CrypTax Offline_1.0.2_x64.dmg";
+const UPDATE_DOWNLOAD_WINDOWS = "CrypTax_Offline_1.0.2_x64-setup.exe";
+const UPDATE_DOWNLOAD_MAC = "CrypTax_Offline_1.0.2_x64.dmg";
 const UPDATE_MAX_DOWNLOADS = 2;
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    // Handle CORS preflight
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Methods": "GET, OPTIONS",
+          "Access-Control-Allow-Headers": "Content-Type",
+        },
+      });
+    }
 
     if (url.pathname === "/download") {
       const sessionId = url.searchParams.get("session_id");

@@ -10,8 +10,8 @@
   <link rel="icon" type="image/png" href="assets/logos/Cryptax%20Icon%20Bleu.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260418">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260507a">
   <link rel="canonical" href="https://cryptaxoffline.fr/">
 </head>
 <body>
@@ -19,14 +19,10 @@
   <!-- ========== NAVIGATION ========== -->
   <nav class="site-nav" aria-label="Navigation principale">
     <div class="container nav-inner">
-      <a href="#" aria-label="CrypTax Offline — Accueil">
+      <a href="/" aria-label="CrypTax Offline — Accueil">
         <img src="assets/logos/Cryptax%20Logo%20Bleu.svg" alt="CrypTax Offline" class="nav-logo" width="180" height="36">
       </a>
       <div class="nav-links" role="list">
-        <a href="#pourquoi" role="listitem">Pourquoi offline</a>
-        <a href="#fonctionnement" role="listitem">Fonctionnement</a>
-        <a href="#fonctionnalites" role="listitem">Fonctionnalités</a>
-        <a href="#tarif" role="listitem">Tarif</a>
         <a href="#faq" role="listitem">FAQ</a>
         <a href="/update.html" role="listitem">Mise à jour</a>
         <a href="/professionnels.html" role="listitem" style="color:var(--color-accent)">Professionnels</a>
@@ -39,36 +35,107 @@
 
     <!-- ========== HERO ========== -->
     <section class="hero" id="hero">
+      <img src="assets/iridiscent/Shape-8-t%201.png" alt="" aria-hidden="true" class="hero-iridescent hero-iridescent--left">
+      <img src="assets/iridiscent/Shape-8-t%202.png" alt="" aria-hidden="true" class="hero-iridescent hero-iridescent--right">
       <div class="container hero-content">
-        <img src="assets/logos/Cryptax%20Icon%20Bleu.svg" alt="" class="hero-icon" aria-hidden="true" width="80" height="80">
-
-        <h1>Reprenez le contrôle de vos données.</h1>
+        <h1>Calculez votre impôt crypto,<br>Préservez vos données.</h1>
 
         <p class="hero-subtitle">
-          Calculez vos plus-values imposables et préparez vos formulaires fiscaux (2086,&nbsp;3916-bis) sans exposer vos données à des tiers. Aucun serveur. Aucun compte. Aucun stockage distant. <span class="hero-os-line">Disponible sur <span class="hero-os-inline"><img src="assets/logos/OS/Microsoft%20Windows.svg" alt="Windows" class="hero-os-logo"></span> et <span class="hero-os-inline"><img src="assets/logos/OS/Apple%20MAC.svg" alt="macOS" class="hero-os-logo"></span>.</span>
+          Plus-values et formulaires fiscaux (2086,&nbsp;3916-bis) générés automatiquement et localement depuis votre machine. Aucun hébergement de vos données sur des serveurs. <span class="hero-os-line">Disponible sur <span class="hero-os-inline"><img src="assets/logos/OS/Microsoft%20Windows.svg" alt="Windows" class="hero-os-logo"></span> et <span class="hero-os-inline"><img src="assets/logos/OS/Apple%20MAC.svg" alt="macOS" class="hero-os-logo"></span></span>
         </p>
-
-        <ul class="hero-bullets" role="list">
-          <li><span class="check" aria-hidden="true">&#10003;</span> Formulaire 2086 pré-rempli, prêt à reporter sur impots.gouv.fr</li>
-          <li><span class="check" aria-hidden="true">&#10003;</span> Formulaire 3916-bis pré-rempli (plateformes étrangères détectées automatiquement)</li>
-          <li><span class="check" aria-hidden="true">&#10003;</span> Calcul fiscal automatique (article 150 VH bis) + justificatif PDF détaillé</li>
-          <li><span class="check" aria-hidden="true">&#10003;</span> Import CSV ou API · Paiement unique · Aucun compte. Aucun serveur. Aucune donnée transmise.</li>
-        </ul>
 
         <div class="hero-ctas">
           <a href="#tarif" class="btn btn-primary">Acheter — 19,99 €</a>
-          <a href="#fonctionnement" class="btn btn-secondary">Voir le fonctionnement</a>
         </div>
 
         <p class="hero-reassurance">
-          Paiement Stripe<span>·</span>Téléchargement immédiat<span>·</span>Sans abonnement<span>·</span>Transactions illimitées
+          Sans abonnement<span>·</span>Transactions illimitées
         </p>
 
-        <div class="trust-badges" role="list">
-          <span class="trust-badge" role="listitem">0 serveur</span>
-          <span class="trust-badge" role="listitem">0 compte</span>
-          <span class="trust-badge" role="listitem">0 tracking</span>
-          <span class="trust-badge" role="listitem">100 % offline</span>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== COMPATIBILITY ========== -->
+    <section id="compatibilite" class="compat-section" aria-labelledby="compat-title">
+      <div class="container">
+        <div class="compat-band" data-reveal="fade-up">
+          <div class="compat-logos">
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Exchanges/Binance.svg" alt="Binance" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Exchanges/Coinbase.svg" alt="Coinbase" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Exchanges/Kraken.svg" alt="Kraken" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Exchanges/Bitstamp.svg" alt="Bitstamp" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Exchanges/Bitpanda.svg" alt="Bitpanda" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Exchanges/OKX.svg" alt="OKX" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Exchanges/Crypto.com.svg" alt="Crypto.com" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/wallets/Ledger.svg" alt="Ledger" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/wallets/Trezor.svg" alt="Trezor" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/wallets/Metamask.svg" alt="MetaMask" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/wallets/Exodus.svg" alt="Exodus" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/wallets/Trust%20Wallet.svg" alt="Trust Wallet" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/wallets/Electrum.svg" alt="Electrum" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/wallets/Phantom.svg" alt="Phantom" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Bitcoin.svg" alt="Bitcoin" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Ethereum.svg" alt="Ethereum" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Solana.svg" alt="Solana" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Polygon.svg" alt="Polygon" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/BNB%20Chain.svg" alt="BNB Chain" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Abstract.svg" alt="Abstract" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Apechain.svg" alt="Apechain" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Arbitrum.svg" alt="Arbitrum" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Berachain.svg" alt="Berachain" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/BitTorrent.svg" alt="BitTorrent" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Blast.svg" alt="Blast" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Celo.svg" alt="Celo" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Fraxtal.svg" alt="Fraxtal" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Gnosis.svg" alt="Gnosis" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/HyperEVM.svg" alt="HyperEVM" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Katana.svg" alt="Katana" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Linea.svg" alt="Linea" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Mantle.svg" alt="Mantle" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/MegaETH.svg" alt="MegaETH" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Memecore.svg" alt="Memecore" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Monad.svg" alt="Monad" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Moonbeam.svg" alt="Moonbeam" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Moonriver.svg" alt="Moonriver" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/opBNB.svg" alt="opBNB" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Plasma.svg" alt="Plasma" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Sei.svg" alt="Sei" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Sonic.svg" alt="Sonic" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Stable.svg" alt="Stable" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Taiko.svg" alt="Taiko" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Unichain.svg" alt="Unichain" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/World.svg" alt="World" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/XDC.svg" alt="XDC" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Avalanche.svg" alt="Avalanche" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Blockchain/Optimism.svg" alt="Optimism" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Cartes/Binance%20Card.svg" alt="Binance Card" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Cartes/Coinbase%20Card.svg" alt="Coinbase Card" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Cartes/Crypto.com%20Card.svg" alt="Crypto.com Card" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Cartes/Revolut.svg" alt="Revolut" class="compat-logo"></div></div>
+            <div class="compat-logo-item"><div class="compat-logo-frame"><img src="assets/logos/Exchanges/Deblock.png" alt="Deblock" class="compat-logo"></div></div>
+          </div>
+        </div>
+
+        <div class="section-header" data-reveal="fade-up">
+          <h2 id="compat-title">Exchanges, wallets, blockchains, cartes de paiement</h2>
+          <p class="section-subtitle">Importez vos historiques complets via import de vos adresses publiques blockchains, via connexions API ou via import CSV. Aucune donnée ne sort de votre ordinateur.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== DEFI RECONSTITUTION ========== -->
+    <section id="defi" aria-labelledby="defi-title">
+      <div class="container">
+        <div class="cryptax-house-anim" aria-hidden="true" data-reveal="fade-up"></div>
+
+        <div class="section-header" data-reveal="fade-up">
+          <h2 id="defi-title">Reconstitution de la réalité de vos transactions, y compris les plus complexes en DeFi (Meteora, Uniswap...)</h2>
+          <p class="section-subtitle">Notre outil est pensé pour les utilisateurs des protocoles : importez un nombre illimité de transactions, CrypTax regroupe vos swaps, vos opérations de LP, lending, yield farming et vous indique la fiscalité applicable automatiquement.</p>
         </div>
       </div>
     </section>
@@ -78,28 +145,32 @@
     <!-- ========== WHY OFFLINE ========== -->
     <section id="pourquoi" aria-labelledby="pourquoi-title">
       <div class="container">
+        <div class="cryptax-anim" aria-hidden="true" data-reveal="fade-up"></div>
+
         <div class="section-header" data-reveal="fade-up">
-          <span class="section-label">Pourquoi offline</span>
-          <h2 id="pourquoi-title">Vos données vous appartiennent. Pas à un serveur.</h2>
-          <p class="section-subtitle">CrypTax Offline n'est pas un service en ligne. Tous les calculs sont effectués localement sur votre machine. Aucune donnée n'est jamais collectée, transmise, stockée à distance ou accessible par un tiers. Vous pouvez supprimer vos fichiers à tout moment.</p>
+          <h2 id="pourquoi-title">Aucune donnée ne sort de votre ordinateur.</h2>
+          <p class="section-subtitle">Aucun historique de transaction, calcul, document fiscal n'est jamais collecté, transmis, stocké à distance ou accessible par quelque manière que ce soit par nous ou par un tiers. Vos données vous appartiennent, gardez-les.</p>
+        </div>
+      </div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- ========== COMMUNAUTÉ / VIDÉO ========== -->
+    <section id="communaute" aria-labelledby="communaute-title">
+      <div class="container">
+        <div class="section-header" data-reveal="fade-up">
+          <h2 id="communaute-title">Inventé par nous, pour vous.</h2>
+          <p class="section-subtitle">À l'écoute de notre communauté, CrypTax ajoute très régulièrement des fonctionnalités et des plateformes compatibles. N'hésitez pas à nous tag sur <a href="https://x.com/CryptaxOffline" target="_blank" rel="noopener" class="community-x-link" aria-label="Suivre CrypTax Offline sur X"><img src="assets/Logos%20MAJ%201.0.3/X.svg" alt="X" class="community-x-icon"></a></p>
         </div>
 
-        <div class="pillars-grid" data-stagger>
-          <div class="pillar-card" data-reveal="fade-up">
-            <span class="pillar-number">1</span>
-            <h3>Volume illimité</h3>
-            <p>Aucune restriction sur le nombre de transactions ni sur la profondeur de l'historique. Import CSV ou API, sur autant d'années fiscales que vous le souhaitez.</p>
-          </div>
-          <div class="pillar-card" data-reveal="fade-up">
-            <span class="pillar-number">2</span>
-            <h3>Confidentialité absolue</h3>
-            <p>Aucune donnée n'est collectée, transmise, stockée à distance ou accessible par un tiers. Aucun compte. Aucun serveur. Vos fichiers et connexions restent exclusivement sur votre machine.</p>
-          </div>
-          <div class="pillar-card" data-reveal="fade-up">
-            <span class="pillar-number">3</span>
-            <h3>Paiement unique</h3>
-            <p>19,99 € une seule fois. Import CSV et connexions API inclus dans la même licence. Pas d'abonnement mensuel, pas de fonctionnalité cachée.</p>
-          </div>
+        <div class="community-video" data-reveal="fade-up">
+          <video class="community-video-player" autoplay muted loop playsinline>
+            <source src="maj1.0.3.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="community-video-fs" aria-label="Afficher en plein écran" onclick="(function(v){var r=v.requestFullscreen||v.webkitRequestFullscreen||v.webkitEnterFullscreen||v.mozRequestFullScreen||v.msRequestFullscreen;if(r)r.call(v);})(this.previousElementSibling)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+          </button>
         </div>
       </div>
     </section>
@@ -110,15 +181,28 @@
     <section id="comparaison" aria-labelledby="comparaison-title">
       <div class="container">
         <div class="section-header" data-reveal="fade-up">
-          <span class="section-label">Sécurité</span>
-          <h2 id="comparaison-title">Plateforme en ligne vs. logiciel local</h2>
-          <p class="section-subtitle">La plupart des outils fiscaux crypto sont des services en ligne. Vos données transitent par leurs serveurs. CrypTax Offline fonctionne différemment.</p>
+          <h2 id="comparaison-title">Outils fiscaux concurrents vs Cryptax Offline</h2>
+          <p class="section-subtitle">Les outils fiscaux crypto concurrents sont des services en ligne. Vos données transitent par leurs serveurs. CrypTax Offline fonctionne différemment.</p>
         </div>
 
         <div class="comparison-grid">
           <div class="comparison-card comparison-saas" data-reveal="fade-left">
             <h3>Service en ligne (SaaS)</h3>
             <ul class="comparison-list">
+              <li>
+                <span class="comparison-icon negative" aria-hidden="true">&#10007;</span>
+                <div>
+                  <strong>Abonnement mensuel obligatoire</strong>
+                  <p>Les outils fiscaux crypto concurrents vous poussent à la souscription récurrente. Vous continuez à payer chaque année pour accéder à vos calculs.</p>
+                </div>
+              </li>
+              <li>
+                <span class="comparison-icon negative" aria-hidden="true">&#10007;</span>
+                <div>
+                  <strong>Nombre de transactions limité</strong>
+                  <p>Pour vous pousser à un abonnement supérieur, ces outils plafonnent le nombre de transactions importables et restreignent l'accès à certains documents.</p>
+                </div>
+              </li>
               <li>
                 <span class="comparison-icon negative" aria-hidden="true">&#10007;</span>
                 <div>
@@ -137,7 +221,7 @@
                 <span class="comparison-icon negative" aria-hidden="true">&#10007;</span>
                 <div>
                   <strong>Compte obligatoire, tracking possible</strong>
-                  <p>Inscription requise, cookies, télémétrie et analytics sont courants. Vos données peuvent être partagées ou revendues.</p>
+                  <p>Inscription requise, cookies, télémétrie et analytics sont courants.</p>
                 </div>
               </li>
               <li>
@@ -156,6 +240,20 @@
               <li>
                 <span class="comparison-icon positive" aria-hidden="true">&#10003;</span>
                 <div>
+                  <strong>Paiement unique : 19,99 € à vie</strong>
+                  <p>Une seule licence achetée une fois. Pas d'abonnement, aucun frais récurrent. Toutes les fonctionnalités incluses.</p>
+                </div>
+              </li>
+              <li>
+                <span class="comparison-icon positive" aria-hidden="true">&#10003;</span>
+                <div>
+                  <strong>Transactions illimitées</strong>
+                  <p>Aucune limite sur le nombre de transactions importables, ni sur la profondeur de l'historique. Tous les documents fiscaux sont inclus.</p>
+                </div>
+              </li>
+              <li>
+                <span class="comparison-icon positive" aria-hidden="true">&#10003;</span>
+                <div>
                   <strong>Données exclusivement sur votre machine</strong>
                   <p>Aucun fichier ne quitte votre ordinateur. Aucun serveur distant, aucun hébergement tiers, aucune base de données externe.</p>
                 </div>
@@ -164,7 +262,7 @@
                 <span class="comparison-icon positive" aria-hidden="true">&#10003;</span>
                 <div>
                   <strong>Aucune surface d'attaque réseau</strong>
-                  <p>Pas de serveur = pas de cible. Vos données ne peuvent pas être exposées par une fuite sur une infrastructure tierce.</p>
+                  <p>Pas de serveur = pas d'exposition aux fuites et aux intrusions.</p>
                 </div>
               </li>
               <li>
@@ -185,112 +283,6 @@
           </div>
         </div>
 
-        <div class="security-recommendation" data-reveal="fade-up">
-          <h4>Recommandation de sécurité</h4>
-          <p>CrypTax Offline protège vos données en ne les transmettant jamais. Pour renforcer la sécurité de votre poste de travail, nous vous recommandons de :</p>
-          <ul>
-            <li>Maintenir votre système d'exploitation et vos logiciels à jour</li>
-            <li>Protéger votre session par un mot de passe robuste</li>
-            <li>Activer le chiffrement du disque (BitLocker sur Windows, FileVault sur Mac)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ========== HOW IT WORKS ========== -->
-    <section id="fonctionnement" aria-labelledby="fonctionnement-title">
-      <div class="container">
-        <div class="section-header" data-reveal="fade-up">
-          <span class="section-label">Fonctionnement</span>
-          <h2 id="fonctionnement-title">Trois étapes. Aucune connexion requise.</h2>
-          <p class="section-subtitle">De l'import de vos données aux valeurs prêtes pour votre déclaration — CSV ou API, 100 % local.</p>
-        </div>
-
-        <div class="steps-grid" data-stagger>
-          <div class="step-card" data-reveal="fade-up">
-            <span class="step-number">1</span>
-            <h3>Importez vos données</h3>
-            <p>Importez vos fichiers CSV depuis vos plateformes, ou connectez-vous directement via API (Binance, Kraken, Coinbase…). Tout est traité localement, rien ne quitte votre machine.</p>
-          </div>
-
-          <div class="step-connector" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </div>
-
-          <div class="step-card" data-reveal="fade-up">
-            <span class="step-number">2</span>
-            <h3>Calcul automatique</h3>
-            <p>Le logiciel applique la méthode du prix moyen pondéré d'acquisition (PMPA) conformément à l'article 150&nbsp;VH&nbsp;bis du CGI. Tout est calculé localement.</p>
-          </div>
-
-          <div class="step-connector" aria-hidden="true">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-          </div>
-
-          <div class="step-card" data-reveal="fade-up">
-            <span class="step-number">3</span>
-            <h3>Déclarez</h3>
-            <p>Récupérez les formulaires 2086 et 3916-bis pré-remplis, ainsi que le justificatif fiscal détaillé (PDF). Reportez les valeurs sur impots.gouv.fr. Le justificatif est conservable en cas de contrôle.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ========== FEATURES & LIMITS ========== -->
-    <section id="fonctionnalites" aria-labelledby="fonctionnalites-title">
-      <div class="container">
-        <div class="section-header" data-reveal="fade-up">
-          <span class="section-label">Fonctionnalités</span>
-          <h2 id="fonctionnalites-title">Ce que CrypTax Offline fait — et ne fait pas</h2>
-          <p class="section-subtitle">Aucune promesse excessive. Voici exactement ce que le logiciel couvre.</p>
-        </div>
-
-        <div class="features-grid">
-          <div class="features-card" data-reveal="fade-left">
-            <h3>
-              <span class="icon-yes" aria-hidden="true">&#10003;</span>
-              Ce que le logiciel fait
-            </h3>
-            <ul class="features-list" role="list">
-              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Formulaire 2086 pré-rempli : toutes les valeurs calculées, prêtes à reporter sur impots.gouv.fr</li>
-              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Calcul fiscal automatique (méthode PMPA, article 150 VH bis du CGI)</li>
-              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Justificatif fiscal détaillé et conservable : méthode, détail des cessions, récapitulatif annuel (PDF)</li>
-              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Import de fichiers CSV (achats, ventes, échanges et transferts non imposables entre wallets et exchanges), pour une vision globale et unifiée de l'ensemble de vos transactions</li>
-              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Import API direct — Binance, Bitpanda, Bitstamp, Coinbase, Crypto.com, Kraken, OKX, BNB Chain, Ethereum, Polygon, Solana — connexion locale et chiffrée, aucune donnée transmise</li>
-              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Formulaire 3916-bis pré-rempli : plateformes étrangères détectées automatiquement à partir de vos données importées</li>
-              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Transactions illimitées, historique multi-années</li>
-              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Fonctionne 100 % hors-ligne — aucune donnée collectée, transmise ou stockée à distance</li>
-              <li><span class="marker yes" aria-hidden="true">&#10003;</span> Disponible sur Windows et Mac</li>
-            </ul>
-          </div>
-
-          <div class="features-card" data-reveal="fade-right">
-            <h3>
-              <span class="icon-no" aria-hidden="true">&#10007;</span>
-              Limites et périmètre
-            </h3>
-
-            <h4 class="features-subheading">Non pris en charge</h4>
-            <ul class="features-list" role="list">
-              <li><span class="marker no" aria-hidden="true">&#10007;</span> Pas de télédéclaration automatique — la saisie finale est effectuée par vos soins sur impots.gouv.fr</li>
-              <li><span class="marker no" aria-hidden="true">&#10007;</span> Pas de conseil fiscal personnalisé — en cas de doute, consultez un professionnel</li>
-              <li><span class="marker no" aria-hidden="true">&#10007;</span> Futures, options, dérivés (en cours de développement)</li>
-            </ul>
-
-            <h4 class="features-subheading">Disponible dans d'autres versions (prévues)</h4>
-            <ul class="features-list" role="list">
-              <li><span class="marker no" aria-hidden="true">&#8212;</span> Régimes fiscaux personnes morales (sociétés détenant des actifs numériques) — produit séparé à venir</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="features-responsibility" data-reveal="fade-up">
-          <p><strong>Responsabilité :</strong> les calculs et formulaires pré-remplis sont basés exclusivement sur les données fournies par l'utilisateur (fichiers CSV ou connexions API). CrypTax Offline ne vérifie pas l'exactitude ni l'exhaustivité des données importées. En cas de doute sur votre situation fiscale, consultez un professionnel habilité.</p>
-        </div>
       </div>
     </section>
 
@@ -357,221 +349,6 @@
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <hr class="section-divider">
-
-    <!-- ========== COMPATIBILITY ========== -->
-    <section id="compatibilite" class="compat-section" aria-labelledby="compat-title">
-      <div class="container">
-        <div class="section-header" data-reveal="fade-up">
-          <span class="section-label">Compatibilité</span>
-          <h2 id="compat-title">Exchanges, wallets, blockchains, cartes de paiement</h2>
-          <p class="section-subtitle">Import CSV ou connexion API directe depuis vos plateformes. Tout traitement est local.</p>
-        </div>
-
-        <div class="compat-grid" data-stagger>
-
-          <!-- EXCHANGES -->
-          <div class="compat-card" data-reveal="fade-up">
-            <h3>Exchanges</h3>
-            <div class="compat-logos">
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Exchanges/Binance.svg" alt="Binance" class="compat-logo">
-                </div>
-                <span class="compat-name">Binance</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span><span class="compat-badge-api">API</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Exchanges/Coinbase.svg" alt="Coinbase" class="compat-logo">
-                </div>
-                <span class="compat-name">Coinbase</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span><span class="compat-badge-api">API</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Exchanges/Kraken.svg" alt="Kraken" class="compat-logo">
-                </div>
-                <span class="compat-name">Kraken</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span><span class="compat-badge-api">API</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Exchanges/Bitstamp.svg" alt="Bitstamp" class="compat-logo">
-                </div>
-                <span class="compat-name">Bitstamp</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span><span class="compat-badge-api">API</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Exchanges/Bitpanda.svg" alt="Bitpanda" class="compat-logo">
-                </div>
-                <span class="compat-name">Bitpanda</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span><span class="compat-badge-api">API</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Exchanges/OKX.svg" alt="OKX" class="compat-logo">
-                </div>
-                <span class="compat-name">OKX</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span><span class="compat-badge-api">API</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Exchanges/Crypto.com.svg" alt="Crypto.com" class="compat-logo">
-                </div>
-                <span class="compat-name">Crypto.com</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span><span class="compat-badge-api">API</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- WALLETS -->
-          <div class="compat-card" data-reveal="fade-up">
-            <h3>Wallets</h3>
-            <div class="compat-logos">
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/wallets/Ledger.svg" alt="Ledger" class="compat-logo">
-                </div>
-                <span class="compat-name">Ledger</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/wallets/Trezor.svg" alt="Trezor" class="compat-logo">
-                </div>
-                <span class="compat-name">Trezor</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/wallets/Metamask.svg" alt="MetaMask" class="compat-logo">
-                </div>
-                <span class="compat-name">MetaMask</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/wallets/Exodus.svg" alt="Exodus" class="compat-logo">
-                </div>
-                <span class="compat-name">Exodus</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/wallets/Trust%20Wallet.svg" alt="Trust Wallet" class="compat-logo">
-                </div>
-                <span class="compat-name">Trust Wallet</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/wallets/Electrum.svg" alt="Electrum" class="compat-logo">
-                </div>
-                <span class="compat-name">Electrum</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/wallets/Phantom.svg" alt="Phantom" class="compat-logo">
-                </div>
-                <span class="compat-name">Phantom</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- BLOCKCHAINS -->
-          <div class="compat-card" data-reveal="fade-up">
-            <h3>Blockchains</h3>
-            <div class="compat-logos">
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Blockchain/Bitcoin.svg" alt="Bitcoin" class="compat-logo">
-                </div>
-                <span class="compat-name">Bitcoin</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Blockchain/Ethereum.svg" alt="Ethereum" class="compat-logo">
-                </div>
-                <span class="compat-name">Ethereum</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span><span class="compat-badge-api">API</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Blockchain/Solana.svg" alt="Solana" class="compat-logo">
-                </div>
-                <span class="compat-name">Solana</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span><span class="compat-badge-api">API</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Blockchain/Polygon.svg" alt="Polygon" class="compat-logo">
-                </div>
-                <span class="compat-name">Polygon</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span><span class="compat-badge-api">API</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Blockchain/BNB%20Chain.svg" alt="BNB Chain" class="compat-logo">
-                </div>
-                <span class="compat-name">BNB Chain</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span><span class="compat-badge-api">API</span></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- CARTES -->
-          <div class="compat-card" data-reveal="fade-up">
-            <h3>Cartes de paiement</h3>
-            <div class="compat-logos">
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Cartes/Binance%20Card.svg" alt="Logo Binance Card" class="compat-logo">
-                </div>
-                <span class="compat-name">Binance Card</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Cartes/Coinbase%20Card.svg" alt="Logo Coinbase Card" class="compat-logo">
-                </div>
-                <span class="compat-name">Coinbase Card</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Cartes/Crypto.com%20Card.svg" alt="Logo Crypto.com Card" class="compat-logo">
-                </div>
-                <span class="compat-name">Crypto.com Card</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Cartes/Revolut.svg" alt="Logo Revolut" class="compat-logo">
-                </div>
-                <span class="compat-name">Revolut</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-              <div class="compat-logo-item">
-                <div class="compat-logo-frame">
-                  <img src="assets/logos/Exchanges/Deblock.png" alt="Deblock" class="compat-logo">
-                </div>
-                <span class="compat-name">Deblock</span>
-                <div class="compat-badges"><span class="compat-badge-csv">CSV</span></div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <p class="compat-note" data-reveal="fade-up">Les badges indiquent le mode d'import disponible par plateforme. Tout exchange ou wallet permettant l'export CSV est potentiellement compatible.</p>
       </div>
     </section>
 
@@ -665,6 +442,21 @@
 
           <div class="faq-item" role="listitem">
             <button class="faq-question" aria-expanded="false">
+              <span>Quelles sont les plateformes compatibles avec CrypTax ?</span>
+              <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+            <div class="faq-answer" role="region">
+              <p><strong>Blockchains (35) :</strong> Abstract, Apechain, Arbitrum, Avalanche, Base, Berachain, Bitcoin, BitTorrent, Blast, BNB Chain, Celo, Ethereum, Fraxtal, Gnosis, HyperEVM, Katana, Linea, Mantle, MegaETH, Memecore, Monad, Moonbeam, Moonriver, opBNB, Optimism, Plasma, Polygon, Sei, Solana, Sonic, Stable, Taiko, Unichain, World, XDC.</p>
+              <p><strong>Exchanges (7) :</strong> Binance, Bitpanda, Bitstamp, Coinbase, Crypto.com, Kraken, OKX.</p>
+              <p><strong>Wallets (7) :</strong> Electrum, Exodus, Ledger, MetaMask, Phantom, Trezor, Trust Wallet.</p>
+              <p><strong>Cartes de paiement (6) :</strong> Binance Card, Bitstack, Coinbase Card, Crypto.com Card, Deblock, Revolut.</p>
+              <p><strong>Protocoles DeFi (2) :</strong> Meteora, Uniswap.</p>
+              <p>Et de nouvelles plateformes arrivent !</p>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <button class="faq-question" aria-expanded="false">
               <span>Mes données sont-elles en sécurité ?</span>
               <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </button>
@@ -748,14 +540,9 @@
         <p>
           CrypTax Offline est un logiciel de calcul fiscal. Il ne constitue pas un conseil fiscal personnalisé. En cas de doute sur votre situation, consultez un professionnel habilité.
         </p>
-        <br>
-        <p>
-          Aucune donnée personnelle n'est collectée, stockée ou transmise. Aucun cookie, aucun traceur, aucune télémétrie.
-        </p>
       </div>
 
       <div class="footer-links">
-        <span>Cryptax Offline est édité par un entrepreneur individuel établi en France.</span>
         <a href="mailto:CryptaxOffline@Proton.me">CryptaxOffline@Proton.me</a>
         <a href="#faq">FAQ</a>
         <a href="/update.html">Mise à jour</a>
@@ -764,8 +551,7 @@
     </div>
     <div class="container" style="text-align:center; margin-top: var(--sp-6);">
       <p class="footer-disclaimer">
-        CrypTax Offline calcule et prépare les données nécessaires aux formulaires 2086 et 3916-bis.
-        Les calculs et formulaires pré-remplis sont basés exclusivement sur les données fournies par l'utilisateur (fichiers CSV ou connexions API). CrypTax Offline ne vérifie pas l'exactitude ni l'exhaustivité des données importées.
+        CrypTax Offline ne vérifie pas l'exactitude ni l'exhaustivité des données importées par l'utilisateur.
         La déclaration finale est effectuée par l'utilisateur sur impots.gouv.fr.
         CrypTax Offline ne transmet aucune donnée et ne constitue pas un conseil fiscal personnalisé.
       </p>
@@ -799,5 +585,9 @@
   <script src="background.js"></script>
   <script src="falling-coins.js"></script>
   <script src="reveal.js"></script>
+  <script src="compat-marquee.js"></script>
+  <script src="hero-anim.js"></script>
+  <script src="assets/cryptax-anim/cryptax-anim.js"></script>
+  <script src="assets/cryptax-house-anim/cryptax-house-anim.js"></script>
 </body>
 </html>

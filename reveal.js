@@ -19,13 +19,14 @@
   var staggerObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
       if (!entry.isIntersecting) return;
+      var step = parseInt(entry.target.getAttribute('data-stagger-delay'), 10) || 90;
       var children = Array.prototype.slice.call(
         entry.target.querySelectorAll(':scope > [data-reveal]')
       );
       children.forEach(function (child, i) {
         setTimeout(function () {
           child.classList.add('revealed');
-        }, i * 90);
+        }, i * step);
       });
       staggerObserver.unobserve(entry.target);
     });

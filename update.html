@@ -9,7 +9,7 @@
   <link rel="icon" type="image/png" href="assets/logos/Cryptax%20Icon%20Bleu.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260418">
   <style>
     .update-page { min-height: 100vh; display: flex; flex-direction: column; }
@@ -240,12 +240,41 @@
       margin-bottom: var(--sp-3);
     }
 
+    .update-video-wrapper {
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
     .update-video {
       width: 100%;
       border-radius: var(--radius-lg);
       border: 1px solid var(--color-border);
       display: block;
     }
+
+    .update-video-fs {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: rgba(0, 0, 0, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 8px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      opacity: 0.7;
+      transition: opacity var(--duration) var(--ease), background var(--duration) var(--ease);
+    }
+
+    .update-video-fs:hover { opacity: 1; background: rgba(0, 0, 0, 0.75); }
+    .update-video-fs svg { width: 18px; height: 18px; }
 
     .update-footer {
       border-top: 1px solid var(--color-border);
@@ -274,7 +303,7 @@
   <!-- ========== HEADER ========== -->
   <nav class="site-nav" aria-label="Navigation">
     <div class="container nav-inner">
-      <a href="./" aria-label="CrypTax Offline — Accueil">
+      <a href="/" aria-label="CrypTax Offline — Accueil">
         <img src="assets/logos/Cryptax%20Logo%20Bleu.svg" alt="CrypTax Offline" class="update-nav-logo" width="200" height="40">
       </a>
       <div class="nav-links">
@@ -294,16 +323,21 @@
 
       <!-- Version info -->
       <div class="update-version-info">
-        <p><strong>Version actuelle :</strong> v1.0.2</p>
-        <p>Si vous utilisez une version antérieure à v1.0.2, il est recommandé de mettre à jour.</p>
+        <p><strong>Version actuelle :</strong> v1.0.3</p>
+        <p>Si vous utilisez une version antérieure à v1.0.3, il est recommandé de mettre à jour.</p>
       </div>
 
       <!-- Vidéo nouveautés -->
       <div class="update-video-block">
-        <p class="update-video-label">Nouveautés — v1.0.2</p>
-        <video class="update-video" autoplay muted loop playsinline>
-          <source src="FondTwitter_4K.mp4" type="video/mp4">
-        </video>
+        <p class="update-video-label">Nouveautés — v1.0.3</p>
+        <div class="update-video-wrapper">
+          <video class="update-video" autoplay muted loop playsinline>
+            <source src="maj1.0.3.mp4" type="video/mp4">
+          </video>
+          <button type="button" class="update-video-fs" aria-label="Afficher en plein écran" onclick="(function(v){var r=v.requestFullscreen||v.webkitRequestFullscreen||v.webkitEnterFullscreen||v.mozRequestFullScreen||v.msRequestFullscreen;if(r)r.call(v);})(this.previousElementSibling)">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+          </button>
+        </div>
       </div>
 
       <!-- Messages -->
