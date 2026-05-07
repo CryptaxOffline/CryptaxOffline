@@ -339,10 +339,7 @@ main {
 
 @media (max-width: 640px) {
   .hero h1 {
-    white-space: normal;
-    width: auto;
-    margin-left: 0;
-    margin-right: 0;
+    font-size: clamp(1.125rem, 5.4vw, 2rem);
   }
 }
 
