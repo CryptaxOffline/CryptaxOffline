@@ -74,11 +74,11 @@ export class RedemptionCounter {
 
 // ===== Configuration mise à jour =====
 // Modifier ces valeurs à chaque nouvelle version :
-const UPDATE_VERSION = "1.0.3";
-const UPDATE_R2_WINDOWS = "CrypTax Offline_1.0.3_x64-setup.exe";
-const UPDATE_R2_MAC = "CrypTax Offline_1.0.3_x64.dmg";
-const UPDATE_DOWNLOAD_WINDOWS = "CrypTax_Offline_1.0.3_x64-setup.exe";
-const UPDATE_DOWNLOAD_MAC = "CrypTax_Offline_1.0.3_x64.dmg";
+const UPDATE_VERSION = "1.0.4";
+const UPDATE_R2_WINDOWS = "CrypTax Offline_1.0.4_x64-setup.exe";
+const UPDATE_R2_MAC = "CrypTax Offline_1.0.4_x64.dmg";
+const UPDATE_DOWNLOAD_WINDOWS = "CrypTax_Offline_1.0.4_x64-setup.exe";
+const UPDATE_DOWNLOAD_MAC = "CrypTax_Offline_1.0.4_x64.dmg";
 const UPDATE_MAX_DOWNLOADS = 2;
 
 export default {
