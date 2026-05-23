@@ -321,16 +321,42 @@
 
           <p>Remplir une 2086 à la main pour un portefeuille actif (plusieurs cessions, plusieurs plateformes, plusieurs wallets, échanges en sursis…) est un cauchemar&nbsp;: il faut historiser chaque mouvement, valoriser le portefeuille à chaque date de cession, suivre les fractions de capital sorties, etc.</p>
 
-          <p>CrypTax Offline fait ce travail automatiquement à partir de vos imports CSV ou API&nbsp;:</p>
+          <p>CrypTax Offline fait ce travail automatiquement à partir de vos imports CSV ou API. Voici le workflow en 3 écrans.</p>
 
-          <ul>
-            <li><strong>Identification automatique</strong> des cessions imposables (et exclusion des échanges en sursis)&nbsp;;</li>
-            <li><strong>Valorisation du portefeuille</strong> à la date exacte de chaque cession, multi-plateformes et multi-wallets&nbsp;;</li>
-            <li><strong>Application de la formule 150 VH bis</strong> avec gestion automatique des fractions de capital initial&nbsp;;</li>
-            <li><strong>Génération du 2086 pré-rempli</strong>, ligne par ligne, prêt à reporter sur impots.gouv.fr&nbsp;;</li>
-            <li><strong>Justificatif PDF détaillé</strong> conservable en cas de contrôle&nbsp;;</li>
-            <li>Le tout <strong>100&nbsp;% localement sur votre machine</strong>, sans transmettre vos données à quiconque.</li>
-          </ul>
+          <h3>1. Vue annuelle prête à reporter</h3>
+
+          <p>À l'ouverture du module 2086, CrypTax affiche votre récapitulatif annuel&nbsp;: nombre de cessions, total des prix de cession, plus ou moins-value nette. Les <strong>totaux à reporter en lignes 51 et 52</strong> du formulaire officiel sont déjà calculés, avec un bouton «&nbsp;Copier&nbsp;» pour chaque montant.</p>
+
+          <figure>
+            <img src="/assets/guide/2086/cryptax-2086-recapitulatif-annuel.png" alt="Vue d'accueil CrypTax pour la déclaration 2086 : récapitulatif annuel et totaux à reporter en lignes 51 et 52 du formulaire" loading="lazy">
+            <figcaption>CrypTax Offline — module « Déclaration 2086 » : récapitulatif annuel et totaux foyer fiscal prêts à reporter sur impots.gouv.fr</figcaption>
+          </figure>
+
+          <p>Le format de copie est paramétrable&nbsp;: format <strong>impots.gouv</strong> (chiffres bruts sans espace, prêts à coller dans les champs du site) ou format <strong>lisible</strong> (avec séparateurs et unité). Petit détail qui fait toute la différence quand vous enchaînez 20 cessions sur impots.gouv.fr.</p>
+
+          <h3>2. Détail ligne à ligne pour chaque cession</h3>
+
+          <p>Pour chaque cession imposable, CrypTax remplit automatiquement <strong>toutes les lignes du 2086</strong> (211 à 224 pour le déclarant 1) avec un bouton «&nbsp;Copier&nbsp;» en face de chaque valeur. Vous naviguez d'une cession à l'autre via un sélecteur.</p>
+
+          <figure>
+            <img src="/assets/guide/2086/cryptax-2086-detail-cession.png" alt="Écran de détail par cession dans CrypTax avec les lignes 211 à 218 pré-remplies et boutons Copier" loading="lazy">
+            <figcaption>Détail d'une cession dans CrypTax : chaque ligne du CERFA 2086 est pré-remplie et copiable en un clic</figcaption>
+          </figure>
+
+          <p>La valorisation du portefeuille (ligne 212) tient compte de <strong>tous vos avoirs sur toutes vos plateformes et wallets</strong> au moment précis de la cession — ce qui élimine l'erreur la plus courante quand on remplit à la main.</p>
+
+          <h3>3. Justificatif fiscal PDF complet</h3>
+
+          <p>En complément du report sur impots.gouv.fr, CrypTax génère un <strong>document justificatif PDF détaillé</strong> à conserver. Il contient la méthodologie de calcul, l'inventaire complet des transactions, et le détail de chaque cession avec son calcul.</p>
+
+          <figure>
+            <img src="/assets/guide/2086/cryptax-2086-justificatif-pdf.png" alt="Bloc Document justificatif dans CrypTax avec bouton Télécharger le justificatif PDF" loading="lazy">
+            <figcaption>Génération du justificatif PDF à conserver en cas de contrôle fiscal</figcaption>
+          </figure>
+
+          <p>En cas de contrôle de l'administration, ce PDF prouve la méthode de calcul appliquée et le détail des opérations. C'est votre filet de sécurité.</p>
+
+          <p>Et bien sûr&nbsp;: <strong>100&nbsp;% localement sur votre machine</strong>, sans transmettre vos données à quiconque.</p>
 
           <div class="article-cta">
             <h3>Pré-remplissez votre 2086 en quelques minutes</h3>
