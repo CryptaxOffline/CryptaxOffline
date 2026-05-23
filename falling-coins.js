@@ -2,16 +2,16 @@
   'use strict';
 
   var COINS = [
-    'assets/Logos%20coins/btc.png',
-    'assets/Logos%20coins/Ethereum.png',
-    'assets/Logos%20coins/Solana.png',
-    'assets/Logos%20coins/Polygon.png',
-    'assets/Logos%20coins/Avalanche.png',
-    'assets/Logos%20coins/Cosmos.png',
-    'assets/Logos%20coins/EOS.png',
-    'assets/Logos%20coins/Shiba.png',
-    'assets/Logos%20coins/USDC.png',
-    'assets/logos/Cryptax%20Icon%20Bleu.svg'
+    '/assets/Logos%20coins/btc.png',
+    '/assets/Logos%20coins/Ethereum.png',
+    '/assets/Logos%20coins/Solana.png',
+    '/assets/Logos%20coins/Polygon.png',
+    '/assets/Logos%20coins/Avalanche.png',
+    '/assets/Logos%20coins/Cosmos.png',
+    '/assets/Logos%20coins/EOS.png',
+    '/assets/Logos%20coins/Shiba.png',
+    '/assets/Logos%20coins/USDC.png',
+    '/assets/logos/Cryptax%20Icon%20Bleu.svg'
   ];
 
   var CONFIG = {
