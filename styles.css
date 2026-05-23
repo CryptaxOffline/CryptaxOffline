@@ -1887,20 +1887,15 @@ section {
 
 .article-download-icon {
   flex-shrink: 0;
-  width: 28px;
-  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(106, 212, 232, 0.1);
-  border: 1px solid rgba(106, 212, 232, 0.25);
-  border-radius: 6px;
   color: var(--color-accent);
 }
 
 .article-download-icon svg {
-  width: 14px;
-  height: 14px;
+  width: 16px;
+  height: 16px;
 }
 
 .article-download-text {
