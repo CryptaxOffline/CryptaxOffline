@@ -2011,3 +2011,124 @@ section {
   color: var(--color-text-dim);
   line-height: 1.6;
 }
+
+/* ========================================================================
+   MOBILE HAMBURGER MENU
+   Visible uniquement sous 768px. Injecté dynamiquement par mobile-menu.js,
+   donc 100 % isolé du reste — supprimable sans rien casser ailleurs.
+   ======================================================================== */
+
+.nav-burger {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 210;
+}
+
+.nav-burger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  transition: transform 0.25s var(--ease), opacity 0.2s var(--ease);
+}
+
+.nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.mobile-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s var(--ease);
+  z-index: 195;
+}
+
+.mobile-menu-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 85vw;
+  max-width: 340px;
+  height: 100vh;
+  height: 100dvh;
+  background: var(--color-surface);
+  border-left: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  padding: calc(64px + var(--sp-6)) var(--sp-6) var(--sp-8);
+  transform: translateX(100%);
+  transition: transform 0.3s var(--ease);
+  z-index: 200;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-menu-panel.open { transform: translateX(0); }
+
+.mobile-menu-panel .mobile-menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  align-items: flex-start;
+}
+
+.mobile-menu-panel .mobile-menu-links a {
+  font-size: 1.0625rem;
+  color: var(--color-text);
+  font-weight: 500;
+  padding: var(--sp-2) 0;
+}
+
+.mobile-menu-panel .mobile-menu-links a:hover {
+  color: var(--color-accent);
+}
+
+.mobile-menu-panel .nav-social {
+  padding: var(--sp-2) 0;
+}
+
+.mobile-menu-panel .nav-social-icon--x { height: 18px; }
+.mobile-menu-panel .nav-social-icon--discord { height: 22px; }
+
+.mobile-menu-panel .mobile-menu-cta {
+  margin-top: auto;
+  width: 100%;
+  text-align: center;
+  padding: var(--sp-4) var(--sp-6);
+  font-size: 0.9375rem;
+  display: block;
+}
+
+body.mobile-menu-active {
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .nav-burger { display: flex; }
+  /* On masque le CTA dans la nav (il est repris dans le panneau) pour
+     libérer l'espace au profit du burger */
+  .site-nav .nav-inner > .nav-cta { display: none; }
+}
+
