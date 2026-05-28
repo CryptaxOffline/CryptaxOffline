@@ -276,13 +276,25 @@
 
           <h2 id="cryptax">Comment CrypTax vous aide</h2>
 
-          <p>CrypTax Offline supporte l'import de vos transactions Polymarket via vos adresses publiques Polygon. Le logiciel reconstitue automatiquement&nbsp;:</p>
+          <p>CrypTax Offline supporte l'import de vos transactions Polymarket. <strong>Attention au choix de l'adresse à importer</strong>&nbsp;: ne renseignez pas votre adresse Polygon principale (celle de votre MetaMask ou wallet courant), mais l'<strong>adresse publique de votre proxy wallet Polymarket</strong>, qui apparaît dans l'interface Polymarket juste sous votre nom d'utilisateur. C'est ce proxy qui détient réellement vos positions et qui reçoit / envoie les USDC liés à vos paris&nbsp;; votre wallet principal ne fait qu'autoriser les opérations.</p>
+
+          <h3>Reconnaissance automatique des paris et de leur issue</h3>
+
+          <p>Une fois l'adresse du proxy wallet renseignée, CrypTax identifie automatiquement chaque opération Polymarket et la qualifie selon son résultat&nbsp;: <strong>Win</strong> (pari gagnant, share convertie contre 1&nbsp;USDC) ou <strong>Loss</strong> (pari perdant, share tombée à 0). Vous n'avez rien à classifier à la main.</p>
+
+          <figure>
+            <img src="/assets/Logos%20MAJ%201.0.5/cryptax-polymarket-transactions-win-loss.png" alt="Liste des transactions Polymarket dans CrypTax avec badges Win et Loss pour chaque pari et conversion automatique en USDC" loading="lazy">
+            <figcaption>CrypTax — vue Transactions avec reconnaissance automatique des paris Polymarket et classification Win / Loss</figcaption>
+          </figure>
+
+          <p>À partir de cette classification, le logiciel reconstitue&nbsp;:</p>
 
           <ul>
             <li>L'<strong>historique complet</strong> de vos achats et ventes de shares (positions Oui/Non par marché)&nbsp;;</li>
-            <li>La <strong>résolution de chaque marché</strong> (rachat à 0 ou à 1 USDC)&nbsp;;</li>
-            <li>Le <strong>gain ou la perte par opération</strong>, en USDC puis converti en euros à la date de l'opération&nbsp;;</li>
-            <li>Le <strong>total agrégé sur l'année</strong>, intégrable dans votre 2086 si vous retenez la qualification 150 VH bis.</li>
+            <li>La <strong>résolution de chaque marché</strong> (rachat à 1&nbsp;USDC pour les Win, 0 pour les Loss)&nbsp;;</li>
+            <li>Pour les <strong>paris gagnants</strong>&nbsp;: le gain est intégré au portefeuille comme un actif acquis, qui entrera dans le calcul global de plus-value au sens de l'article <strong>150 VH bis</strong> lors d'une cession future en monnaie ayant cours légal&nbsp;;</li>
+            <li>Pour les <strong>paris perdants</strong>&nbsp;: la perte est enregistrée et compense les gains lors du calcul annuel agrégé&nbsp;;</li>
+            <li>Le <strong>total net sur l'année</strong>, prêt à reporter dans votre <a href="/guide/declarer/formulaire-2086-plus-values-crypto.html">formulaire 2086</a> si vous retenez la qualification 150 VH bis.</li>
           </ul>
 
           <p>Le tout <strong>localement sur votre machine</strong>, sans transmettre vos données ni vos clés à quiconque — particulièrement important pour des opérations sur une plateforme dont l'usage est juridiquement sensible en France.</p>
