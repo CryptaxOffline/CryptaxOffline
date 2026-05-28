@@ -278,7 +278,18 @@
 
           <p>CrypTax Offline supporte l'import de vos transactions Polymarket. <strong>Attention au choix de l'adresse à importer</strong>&nbsp;: ne renseignez pas votre adresse Polygon principale (celle de votre MetaMask ou wallet courant), mais l'<strong>adresse publique de votre proxy wallet Polymarket</strong>, qui apparaît dans l'interface Polymarket juste sous votre nom d'utilisateur. C'est ce proxy qui détient réellement vos positions et qui reçoit / envoie les USDC liés à vos paris&nbsp;; votre wallet principal ne fait qu'autoriser les opérations.</p>
 
-          <h3>Reconnaissance automatique des paris et de leur issue</h3>
+          <h3>Étape 1 — Ajouter votre adresse proxy dans CrypTax</h3>
+
+          <p>Dans l'onglet <strong>Importer</strong>, déroulez la section Polymarket et collez votre adresse proxy (commence par <code>0x…</code>, 42 caractères). Pour la récupérer&nbsp;: connectez-vous sur polymarket.com, cliquez sur votre avatar en haut à droite, puis sur <strong>Profile</strong>&nbsp;; l'adresse affichée en grand sur votre page de profil est l'adresse proxy à renseigner.</p>
+
+          <figure>
+            <img src="/assets/Logos%20MAJ%201.0.5/cryptax-polymarket-import-proxy-wallet.png" alt="Écran d'import Polymarket dans CrypTax avec le champ d'ajout d'adresse proxy wallet et l'explication contextuelle" loading="lazy">
+            <figcaption>Écran d'import Polymarket dans CrypTax — champ de saisie de l'adresse proxy avec l'explication contextuelle « où la trouver »</figcaption>
+          </figure>
+
+          <p>L'import se fait en lecture publique uniquement (sans clé privée, sans signature) via l'API publique de polymarket.com. Toutes les opérations <strong>TRADE</strong> (achats / ventes de shares) et <strong>REDEEM</strong> (résolutions de marché) sont récupérées et qualifiées comme des swaps USDC ↔ token de marché.</p>
+
+          <h3>Étape 2 — Reconnaissance automatique des paris et de leur issue</h3>
 
           <p>Une fois l'adresse du proxy wallet renseignée, CrypTax identifie automatiquement chaque opération Polymarket et la qualifie selon son résultat&nbsp;: <strong>Win</strong> (pari gagnant, share convertie contre 1&nbsp;USDC) ou <strong>Loss</strong> (pari perdant, share tombée à 0). Vous n'avez rien à classifier à la main.</p>
 
