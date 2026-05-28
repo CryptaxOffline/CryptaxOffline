@@ -94,6 +94,7 @@
             <li><a href="#declaration">2. Faut-il déclarer Polymarket en 3916-bis&nbsp;?</a></li>
             <li><a href="#fiscalite">3. Quelle fiscalité pour vos gains Polymarket&nbsp;?</a></li>
             <li><a href="#position-prudente">Position prudente recommandée</a></li>
+            <li><a href="#sortie-fiat">Sortie des gains vers fiat&nbsp;: le point de friction</a></li>
             <li><a href="#cryptax">Comment CrypTax vous aide</a></li>
           </ol>
         </nav>
@@ -104,7 +105,7 @@
 
           <div class="article-callout">
             <div class="article-callout-title">En résumé</div>
-            <p><strong>1. Légalité :</strong> Polymarket est considéré comme une offre de jeux d'argent non autorisée en France. L'<strong>ANJ</strong> (Autorité nationale des jeux) a explicitement mis en demeure la plateforme. L'accès est officiellement bloqué pour les IP françaises. <strong>2. 3916-bis :</strong> ça dépend du mode d'accès — wallet en self-custody = en principe hors champ ; embedded wallet via email = potentiellement dans le champ. <strong>3. Fiscalité :</strong> qualification non tranchée, en pratique le rattachement aux gains sur actifs numériques (art. 150 VH bis) ou aux bénéfices non commerciaux (BNC) sont les deux pistes les plus crédibles selon la nature des opérations.</p>
+            <p><strong>1. Légalité :</strong> Polymarket est considéré comme une offre de jeux d'argent non autorisée en France. L'<strong>ANJ</strong> (Autorité nationale des jeux) a explicitement mis en demeure la plateforme. L'accès est officiellement bloqué pour les IP françaises. <strong>2. 3916-bis :</strong> ça dépend du mode d'accès — wallet en self-custody = en principe hors champ ; embedded wallet via email = potentiellement dans le champ. <strong>3. Fiscalité :</strong> qualification non tranchée, en pratique le rattachement aux gains sur actifs numériques (art. 150 VH bis) ou aux bénéfices non commerciaux (BNC) sont les deux pistes les plus crédibles selon la nature des opérations. <strong>4. Risques pour l'utilisateur :</strong> aucun risque pénal côté joueur en l'état du droit, mais deux risques pratiques concrets (gel des fonds en cas de saisie de la plateforme, friction bancaire au rapatriement des gains en euros).</p>
           </div>
 
           <h2 id="legalite">1. Polymarket est-il légal en France&nbsp;?</h2>
@@ -132,13 +133,19 @@
           <ul>
             <li>Polymarket a mis en place un <strong>blocage géographique des IP françaises</strong>&nbsp;: l'accès direct depuis la France est techniquement empêché&nbsp;;</li>
             <li>L'ANJ peut demander aux fournisseurs d'accès internet français de <strong>bloquer le domaine</strong>&nbsp;;</li>
-            <li>Les plateformes opérant sans agrément sont passibles de <strong>sanctions pénales</strong> (l'article L. 324-3 du Code de la sécurité intérieure prévoit jusqu'à 3 ans d'emprisonnement et 90&nbsp;000&nbsp;€ d'amende pour l'offre illégale de jeux d'argent).</li>
+            <li>Les plateformes opérant sans agrément sont passibles de <strong>sanctions pénales</strong>&nbsp;: l'article L.&nbsp;324-3 du Code de la sécurité intérieure et l'article 56 de la loi du 12 mai 2010 prévoient jusqu'à <strong>3 ans d'emprisonnement et 90&nbsp;000&nbsp;€ d'amende</strong> pour l'offre illégale de jeux d'argent en ligne, sanctions visant l'opérateur, le promoteur et l'intermédiaire, <strong>et non le joueur</strong>.</li>
           </ul>
 
-          <div class="article-callout article-callout--warning">
-            <div class="article-callout-title">Et l'utilisateur final ?</div>
-            <p>Les sanctions visent en premier lieu <strong>les opérateurs non agréés</strong>, pas les joueurs. La loi française ne sanctionne pas explicitement le simple fait pour un particulier de placer un pari sur une plateforme non autorisée. En revanche, contourner le blocage géographique via un VPN pour accéder à un service interdit en France place l'utilisateur dans une <strong>zone grise</strong>&nbsp;: l'usage du VPN n'est pas illégal en soi, mais accéder à un service de jeu illégal en France l'est en théorie, même si en pratique aucune poursuite individuelle n'est connue à ce jour.</p>
-          </div>
+          <h3>Quels risques réels pour l'utilisateur français&nbsp;?</h3>
+
+          <h4>Axe 1 — Risque pénal côté joueur : inexistant en l'état du droit français</h4>
+          <p>Les sanctions pénales prévues par la loi du 12 mai 2010 (article 56) et le Code de la sécurité intérieure (articles L.&nbsp;324-1 et suivants) visent <strong>l'offre illégale</strong> de jeux d'argent — c'est-à-dire l'opérateur, le promoteur, l'intermédiaire — <strong>et non le simple participant</strong>. Aucun texte ne sanctionne pénalement le seul fait, pour un particulier, de placer un pari sur une plateforme non agréée par l'ANJ. Cette analyse est cohérente avec l'absence totale de jurisprudence publiée à l'encontre de joueurs particuliers, que ce soit pour usage de sites de paris sportifs offshore (Bet365, Pinnacle), de casinos en ligne non autorisés ou de prediction markets. La répression française est, en matière de jeux, structurée autour de <strong>l'offre et non de la demande</strong>.</p>
+
+          <h4>Axe 2 — Risque de gel ou blocage des fonds</h4>
+          <p>En cas de saisie de la plateforme par des autorités étrangères (le précédent de la saisie de domaine fin 2024 est à garder en tête), l'interface peut disparaître. En <strong>self-custody</strong>, les positions restent on-chain et accessibles, mais l'écosystème de résolution et de redemption peut être affecté. En <strong>embedded wallet</strong>, le risque est plus lourd puisque l'accès dépend de l'interface du prestataire.</p>
+
+          <h4>Axe 3 — Risque bancaire et conformité LCB-FT</h4>
+          <p>Un virement entrant significatif lié à un off-ramp Polymarket peut déclencher un <strong>signalement TRACFIN</strong> par la banque et une demande de justificatifs sur l'origine des fonds, voire conduire à une <strong>clôture de compte</strong> sur le fondement des obligations LCB-FT, indépendamment de toute illégalité avérée des opérations.</p>
 
           <h3>Ce que ça implique concrètement</h3>
 
@@ -163,6 +170,8 @@
           <p>L'utilisateur connecte son propre wallet non-custodial (MetaMask, Rabby, etc.), dont il a généré et contrôle seul la clé privée et la seed phrase. Aucun tiers ne conserve ni ne gère cette clé. Les fonds (USDC) restent dans le wallet de l'utilisateur, lequel ne fait qu'interagir avec les smart contracts de marché déployés sur Polygon.</p>
 
           <p>Dans cette configuration, il n'existe pas de compte ouvert auprès d'une entité étrangère. L'opération est donc en principe <strong>hors du champ du 3916-bis</strong>. L'obligation de déclaration des plus-values lors des cessions imposables (art. 150 VH bis du CGI) demeure une question distincte et autonome.</p>
+
+          <p><em>À noter&nbsp;: une lecture maximaliste de l'article 1649 bis C du CGI pourrait conduire l'administration à considérer l'interface de la plateforme comme un service de gestion faisant entrer le wallet dans le périmètre déclaratif, même en self-custody. Cette interprétation n'est pas confirmée par la doctrine publiée mais elle existe en doctrine commentée et invite à la prudence.</em></p>
 
           <h3>Configuration 2 — Compte via email / social login (embedded wallet)</h3>
 
@@ -196,23 +205,34 @@
 
           <h3>Piste 1 — Plus-values d'actifs numériques (article 150 VH bis du CGI)</h3>
 
-          <p>Argument&nbsp;: sur Polymarket, vous n'envoyez pas un pari à un bookmaker. Vous <strong>achetez et vendez des jetons (shares)</strong> représentant des positions «&nbsp;Oui&nbsp;» ou «&nbsp;Non&nbsp;» sur un événement. Ces shares ont un prix qui fluctue en USDC entre 0,01 et 0,99 selon la probabilité perçue de l'issue. À la résolution du marché, les shares «&nbsp;gagnantes&nbsp;» sont rachetées à 1 USDC, les autres à 0.</p>
+          <p>Argument&nbsp;: sur Polymarket, vous n'envoyez pas un pari à un bookmaker. Vous <strong>achetez et vendez des jetons (shares)</strong> représentant des positions «&nbsp;Oui&nbsp;» ou «&nbsp;Non&nbsp;» sur un événement. Le prix unitaire d'une share fluctue entre ~0,01 et ~0,99 USDC pendant la vie du marché, ces bornes reflétant la probabilité implicite de l'issue. À la résolution, chaque share gagnante devient convertible (<em>redeemable</em>) contre 1&nbsp;USDC via le smart contract — le collatéral étant verrouillé dès l'émission des deux jambes Oui/Non — tandis que les shares perdantes tombent à 0. La valeur d'une position n'est <strong>pas plafonnée à 0,99</strong>&nbsp;: elle dépend du nombre de shares détenues et de leur prix d'acquisition, ce qui détermine la plus ou moins-value imposable.</p>
 
           <p>Du point de vue strictement on-chain, chaque opération est une <strong>cession d'actifs numériques contre USDC</strong>, qui semble entrer dans le champ de l'article 150 VH bis du CGI. Cette piste est défendable lorsque l'utilisateur effectue un nombre limité d'opérations dans une logique d'investissement ponctuel.</p>
+
+          <div class="article-callout">
+            <div class="article-callout-title">Exemple chiffré</div>
+            <p>Vous achetez <strong>10&nbsp;000 shares «&nbsp;Oui&nbsp;» à 0,30 USDC</strong> l'unité, soit une mise de 3&nbsp;000&nbsp;USDC. Trois issues possibles&nbsp;:</p>
+            <ul>
+              <li><strong>Revente avant résolution</strong>&nbsp;: le marché monte, la share cote 0,55&nbsp;; vous revendez vos 10&nbsp;000 shares pour 5&nbsp;500&nbsp;USDC, soit une plus-value de 2&nbsp;500&nbsp;USDC.</li>
+              <li><strong>Résolution gagnante</strong>&nbsp;: chaque share est convertie contre 1&nbsp;USDC&nbsp;; vos 10&nbsp;000 shares valent 10&nbsp;000&nbsp;USDC, plus-value de 7&nbsp;000&nbsp;USDC.</li>
+              <li><strong>Résolution perdante</strong>&nbsp;: les shares tombent à 0&nbsp;; perte intégrale de la mise de 3&nbsp;000&nbsp;USDC.</li>
+            </ul>
+            <p>L'assiette imposable se calcule sur l'écart entre prix de cession (ou de conversion) et prix d'acquisition, et <strong>non sur la borne unitaire de 0,99</strong>.</p>
+          </div>
 
           <p>Conséquence&nbsp;:</p>
 
           <ul>
             <li>Les gains intègrent le calcul global des plus-values d'actifs numériques de l'année (voir <a href="/guide/declarer/formulaire-2086-plus-values-crypto.html">guide 2086</a>)&nbsp;;</li>
             <li>Imposition au <strong>PFU 31,4&nbsp;%</strong> (12,8&nbsp;% IR + 18,6&nbsp;% prélèvements sociaux depuis le 1ᵉʳ janvier 2026), ou option barème progressif&nbsp;;</li>
-            <li>Application du seuil d'exonération à 305&nbsp;€ au niveau du foyer fiscal.</li>
+            <li>Application du seuil de <strong>305&nbsp;€</strong> au niveau du foyer fiscal, calculé sur le <strong>total annuel des cessions imposables</strong> et non sur le gain net.</li>
           </ul>
 
           <h3>Piste 2 — Bénéfices non commerciaux (BNC, article 92 du CGI)</h3>
 
           <p>Argument&nbsp;: si l'activité est <strong>habituelle, répétée et organisée</strong> (utilisateur qui place de nombreux paris, suit l'actualité, applique une stratégie probabiliste), l'administration pourrait y voir une activité lucrative ne se rattachant à aucune autre catégorie de revenus, ce qui relèverait des <strong>bénéfices non commerciaux non professionnels</strong> au sens de l'article 92 du CGI.</p>
 
-          <p>Le critère central est la <strong>caractère habituel</strong> de l'activité, qui s'apprécie au cas par cas (fréquence des opérations, volumes, organisation, source principale ou accessoire de revenus, etc.). En matière de paris ou de gains issus d'activités non réglementées, l'administration retient parfois cette qualification lorsque le gain ne peut pas être qualifié de simple jeu de hasard exonéré.</p>
+          <p>Le critère central est le <strong>caractère habituel</strong> de l'activité, qui s'apprécie au cas par cas (fréquence des opérations, volumes, organisation, source principale ou accessoire de revenus). La jurisprudence la plus proche est celle du <strong>Conseil d'État sur les joueurs de poker professionnels</strong> (CE, 21 juin 2018, n°&nbsp;412124), qui a retenu une qualification BNC dès lors que l'activité est exercée à titre habituel et dans des conditions assimilables à celles d'un professionnel. Cette grille de lecture peut être transposée à un utilisateur Polymarket très actif.</p>
 
           <p>Conséquence&nbsp;:</p>
 
@@ -240,7 +260,7 @@
           <ol>
             <li><strong>Utilisation occasionnelle, en self-custody</strong> (wallet non-custodial, opérations ponctuelles)&nbsp;: rattachement à l'article 150 VH bis du CGI (plus-values d'actifs numériques), déclaration sur la <a href="/guide/declarer/formulaire-2086-plus-values-crypto.html">2086</a>. Pas d'obligation 3916-bis.</li>
             <li><strong>Utilisation occasionnelle, via embedded wallet</strong> (email / social login)&nbsp;: rattachement 150 VH bis identique, plus déclaration 3916-bis du compte étranger géré par le prestataire (voir <a href="/guide/declarer/formulaire-3916-bis-comptes-a-declarer.html">guide 3916-bis</a>).</li>
-            <li><strong>Utilisation habituelle et organisée</strong> (nombreuses opérations, stratégie, source significative de revenus)&nbsp;: rattachement BNC plus probable. Conseillé de consulter un fiscaliste pour qualifier précisément l'activité.</li>
+            <li><strong>Utilisation habituelle et organisée</strong> (nombreuses opérations, stratégie, source significative de revenus)&nbsp;: rattachement BNC plus probable au sens de l'article 92 du CGI, grille de lecture inspirée de la jurisprudence <strong>CE 21 juin 2018</strong> sur les joueurs de poker. Conseillé de consulter un fiscaliste pour qualifier précisément l'activité.</li>
           </ol>
 
           <p>Dans tous les cas, <strong>conserver une traçabilité complète</strong> des opérations on-chain (date, montant, transaction hash, résolution du marché, gain ou perte) est indispensable pour pouvoir justifier vos déclarations en cas de contrôle.</p>
@@ -249,6 +269,10 @@
             <div class="article-callout-title">Important</div>
             <p>Cette analyse expose les qualifications les plus défendables en l'état du droit fiscal français à la date de publication. Aucune doctrine administrative publiée ne tranche définitivement le cas Polymarket. Toute situation impliquant des volumes significatifs ou une activité habituelle mérite l'<strong>avis personnalisé d'un avocat fiscaliste ou d'un expert-comptable</strong> avant de finaliser votre déclaration.</p>
           </div>
+
+          <h2 id="sortie-fiat">Sortie des gains vers fiat&nbsp;: le point de friction</h2>
+
+          <p>Le rapatriement en euros est le moment où l'illégalité de l'offre rencontre concrètement le système bancaire français. Un off-ramp via PSAN agréé reconvertissant des USDC en euros vers un compte bancaire français peut donner lieu à des <strong>demandes de justificatifs sur l'origine des fonds</strong>. Conserver l'intégralité de la traçabilité on-chain (transaction hashs, historique des marchés, dates de résolution, conversions USDC/EUR aux cours retenus) est indispensable, à la fois pour répondre à une demande bancaire et pour étayer la déclaration fiscale. Privilégier des <strong>off-ramps réguliers et de montants raisonnables</strong> limite les frictions par rapport à un retrait massif unique.</p>
 
           <h2 id="cryptax">Comment CrypTax vous aide</h2>
 
