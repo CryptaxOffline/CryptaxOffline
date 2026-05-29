@@ -582,7 +582,8 @@ section {
   margin: 0 auto;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  border: 1px solid var(--color-border);
+  font-size: 0;
+  line-height: 0;
 }
 
 .community-video-player {
@@ -591,74 +592,41 @@ section {
   height: auto;
 }
 
+/* Boutons de contrôle (lecture/pause, son, plein écran) */
+.community-video-play,
+.community-video-sound,
 .community-video-fs {
   position: absolute;
   top: 12px;
-  right: 12px;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border: none;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: 8px;
+  background: rgba(10, 12, 20, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #fff;
-  opacity: 0.7;
+  opacity: 0.95;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
   transition: opacity var(--duration) var(--ease), background var(--duration) var(--ease);
 }
 
-.community-video-fs:hover { opacity: 1; background: rgba(0, 0, 0, 0.75); }
+.community-video-play  { right: 100px; }
+.community-video-sound { right: 56px; }
+.community-video-fs    { right: 12px; }
+
+.community-video-play:hover,
+.community-video-sound:hover,
+.community-video-fs:hover { opacity: 1; background: rgba(10, 12, 20, 0.9); }
+
+.community-video-play svg,
+.community-video-sound svg,
 .community-video-fs svg { width: 18px; height: 18px; }
-
-.community-video-sound {
-  position: absolute;
-  top: 12px;
-  right: 56px;
-  width: 36px;
-  height: 36px;
-  border: none;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  opacity: 0.7;
-  transition: opacity var(--duration) var(--ease), background var(--duration) var(--ease);
-}
-
-.community-video-sound:hover { opacity: 1; background: rgba(0, 0, 0, 0.75); }
-.community-video-sound svg { width: 18px; height: 18px; }
-
-.community-video-play {
-  position: absolute;
-  top: 12px;
-  right: 100px;
-  width: 36px;
-  height: 36px;
-  border: none;
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  border-radius: 8px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  opacity: 0.7;
-  transition: opacity var(--duration) var(--ease), background var(--duration) var(--ease);
-}
-
-.community-video-play:hover { opacity: 1; background: rgba(0, 0, 0, 0.75); }
-.community-video-play svg { width: 18px; height: 18px; }
 
 /* Toggle des icônes son on/off */
 .video-sound-btn .icon-on { display: none; }
