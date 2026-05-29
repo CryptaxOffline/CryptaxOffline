@@ -173,11 +173,15 @@
           <p class="section-subtitle">À l'écoute de notre communauté, CrypTax ajoute très régulièrement des fonctionnalités et des plateformes compatibles. N'hésitez pas à nous tag sur <a href="https://x.com/CryptaxOffline" target="_blank" rel="noopener" class="community-x-link" aria-label="Suivre CrypTax Offline sur X"><img src="assets/Logos%20MAJ%201.0.3/X.svg" alt="X" class="community-x-icon"></a> et <a href="https://discord.gg/x34Dwe8e4" target="_blank" rel="noopener" class="community-x-link" aria-label="Rejoindre CrypTax Offline sur Discord"><img src="assets/Logos%20MAJ%201.0.3/Discord.svg" alt="Discord" class="community-discord-icon"></a></p>
         </div>
 
-        <div class="community-video" data-reveal="fade-up">
+        <div class="community-video" data-reveal="fade-up" data-video-sound>
           <video class="community-video-player" autoplay muted loop playsinline>
             <source src="MAJ-1-0-5-4K.mp4" type="video/mp4">
           </video>
-          <button type="button" class="community-video-fs" aria-label="Afficher en plein écran" onclick="(function(v){var r=v.requestFullscreen||v.webkitRequestFullscreen||v.webkitEnterFullscreen||v.mozRequestFullScreen||v.msRequestFullscreen;if(r)r.call(v);})(this.previousElementSibling)">
+          <button type="button" class="community-video-sound video-sound-btn" aria-label="Activer le son" aria-pressed="false">
+            <svg class="icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <svg class="icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+          </button>
+          <button type="button" class="community-video-fs" aria-label="Afficher en plein écran" onclick="(function(v){var r=v.requestFullscreen||v.webkitRequestFullscreen||v.webkitEnterFullscreen||v.mozRequestFullScreen||v.msRequestFullscreen;if(r)r.call(v);})(this.parentElement.querySelector('video'))">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
           </button>
         </div>
@@ -589,6 +593,53 @@
           }
         });
       });
+    })();
+  </script>
+
+  <script>
+    // Son des vidéos : muet pour l'autoplay, activé dès la 1re interaction, + bouton toggle
+    (function () {
+      function setup(wrap) {
+        var video = wrap.querySelector('video');
+        var btn = wrap.querySelector('.video-sound-btn');
+        if (!video || !btn) return;
+        var userControlled = false;
+        var events = ['pointerdown', 'keydown', 'touchstart'];
+
+        function reflect() {
+          var on = !video.muted;
+          btn.classList.toggle('is-on', on);
+          btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+          btn.setAttribute('aria-label', on ? 'Couper le son' : 'Activer le son');
+        }
+
+        function removeAuto() {
+          events.forEach(function (ev) { window.removeEventListener(ev, autoUnmute); });
+        }
+
+        function autoUnmute(e) {
+          if (e && e.target && e.target.closest && e.target.closest('.video-sound-btn')) return;
+          if (userControlled) { removeAuto(); return; }
+          video.muted = false;
+          var p = video.play();
+          if (p && p.catch) { p.catch(function () { video.muted = true; reflect(); }); }
+          reflect();
+          removeAuto();
+        }
+
+        btn.addEventListener('click', function () {
+          userControlled = true;
+          video.muted = !video.muted;
+          if (!video.muted) { var p = video.play(); if (p && p.catch) p.catch(function () {}); }
+          reflect();
+        });
+
+        events.forEach(function (ev) {
+          window.addEventListener(ev, autoUnmute, { passive: true });
+        });
+        reflect();
+      }
+      document.querySelectorAll('[data-video-sound]').forEach(setup);
     })();
   </script>
 
